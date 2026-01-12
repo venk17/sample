@@ -1,8 +1,9 @@
 import React from 'react';
-import  ServiceLayout  from '../../components/Layout/ServiceLayout';
+import ServiceLayout from '../../components/Layout/ServiceLayout';
 import { 
   Cpu, Zap, Brain, Database, LineChart, Target,
-  Users, Shield, Globe, TrendingUp, BarChart, Filter
+  Users, Shield, Globe, TrendingUp, BarChart, Filter,
+  Search, MessageSquare, Building
 } from 'lucide-react';
 
 const AIAutomation = () => {
@@ -24,32 +25,32 @@ const AIAutomation = () => {
       {
         title: "Process Automation",
         description: "Automate repetitive tasks and workflows for efficiency gains",
-        icon: <Zap className="w-6 h-6 text-indigo-600" />
+        icon: Zap
       },
       {
         title: "AI Strategy",
         description: "Develop AI roadmaps aligned with business objectives",
-        icon: <Target className="w-6 h-6 text-indigo-600" />
+        icon: Target
       },
       {
         title: "Machine Learning",
         description: "Implement predictive models and intelligent systems",
-        icon: <Brain className="w-6 h-6 text-indigo-600" />
+        icon: Brain
       },
       {
         title: "Intelligent Chatbots",
         description: "Create AI-powered customer service solutions",
-        icon: <MessageSquare className="w-6 h-6 text-indigo-600" />
+        icon: MessageSquare
       },
       {
         title: "Data Analytics",
         description: "Leverage AI for advanced analytics and insights",
-        icon: <BarChart className="w-6 h-6 text-indigo-600" />
+        icon: BarChart
       },
       {
         title: "AI Integration",
         description: "Integrate AI capabilities into existing systems",
-        icon: <Database className="w-6 h-6 text-indigo-600" />
+        icon: Database
       }
     ],
     
