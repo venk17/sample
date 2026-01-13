@@ -11,6 +11,13 @@ import GrowthMarketing from './pages/services/GrowthMarketing';
 import OrganisationCapability from './pages/services/OrganisationCapability';
 import AIAutomation from './pages/services/AIAutomation';
 
+import InsightsPage from "./pages/InsightsPage"
+import BlogPage from "./pages/Insights/Blog";
+import CaseStudiesPage from "./pages/Insights/CaseStudies";
+import IndustryReportsPage from "./pages/Insights/IndustryReports";
+import BlogDetailPage from "./pages/Insights/BlogDetail";
+import CaseStudyDetailPage from "./pages/Insights/CaseStudyDetail";
+
 function App() {
   return (
     <Router>
@@ -35,6 +42,25 @@ function App() {
             
             {/* Fallback route - redirect to home if no match */}
             <Route path="*" element={<Home />} />
+
+
+
+
+            {/* Insights Routes */}
+            <Route path="/insights" element={<InsightsPage />} />
+            <Route path="/insights/blog" element={<BlogPage />} />
+            <Route path="/insights/cases" element={<CaseStudiesPage />} />
+            <Route path="/insights/reports" element={<IndustryReportsPage />} />
+        
+            {/* Individual detail pages (optional) */}
+            <Route path="/insights/blog/:id" element={<BlogDetailPage />} />
+            <Route path="/insights/cases/:id" element={<CaseStudyDetailPage />} />
+
+
+
+
+
+
           </Routes>
         </main>
 
