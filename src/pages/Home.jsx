@@ -5,7 +5,10 @@ import ServicesSection from '../components/ServicesSection';
 import InsightsSection from '../components/InsightsSection';
 import AlliancesSection from '../components/AlliancesSection';
 import WeAreSection from '../components/WeAreSection';
-import LocationsSection from '../components/LocationsSection';
+import CallToActionSection from '../components/CallToActionSection';
+import CapabilitiesSection from "../components/CapabilitiesSection"
+
+
 
 const Home = () => {
   return (
@@ -17,7 +20,9 @@ const Home = () => {
       <InsightsSection />
       <AlliancesSection />
       <WeAreSection />
-      <LocationsSection />
+      <CallToActionSection/>
+      <CapabilitiesSection/>
+   
     </>
   );
 };

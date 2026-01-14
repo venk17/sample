@@ -8,24 +8,13 @@ import heroImg3 from "../assets/images/heroImg3.png"
 
 const slides = [
   {
-    type: "image",
-    src: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg"
-  },
-  {
     type: "video",
     src: heroVideo1
   },
   {
     type: "image",
     src: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"
-  },
-  {
-    type: "video",
-    src: heroVideo2
-  }, {
-    type: "image",
-    src: heroImg3
-  },
+  }, 
   {
     type: "video",
     src: heroVideo3

@@ -12,7 +12,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   // 🔁 CHANGE THIS ADDRESS ANYTIME
-  const locationText = "Chennai, Tamil Nadu, India";
+  const locationText = "India";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +85,7 @@ const Header = () => {
   ];
 
   const navigation = [
-    { name: "Our Work", path: "/work" },
+    
     { 
       name: "DD Insights", 
       dropdown: true,
@@ -161,24 +161,11 @@ const Header = () => {
     };
   }, [activeDropdown]);
 
-  // Handle service click in desktop
-  const handleServiceClick = (path, e) => {
-    e.stopPropagation(); // Prevent event bubbling
-    navigate(path);
-    setActiveDropdown(null);
-  };
-
-  // Handle service click in mobile
+  // Handle service click in mobile - only for mobile menu
   const handleMobileServiceClick = (path) => {
     navigate(path);
     setIsMobileMenuOpen(false);
     setMobileOpenDropdown(null);
-  };
-
-  // Handle regular link click in desktop dropdown
-  const handleDesktopLinkClick = (e) => {
-    e.stopPropagation(); // Prevent event bubbling
-    setActiveDropdown(null);
   };
 
   return (
@@ -253,7 +240,7 @@ const Header = () => {
                           : "text-white hover:opacity-80"}
                       `}
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent bubbling
+                        e.stopPropagation();
                         setActiveDropdown(
                           activeDropdown === item.name ? null : item.name
                         );
@@ -290,7 +277,7 @@ const Header = () => {
                                         to={service.path}
                                         className="text-sm font-semibold text-blue-600 hover:text-blue-800 inline-flex items-center gap-1"
                                         onClick={(e) => {
-                                          handleDesktopLinkClick(e);
+                                          e.stopPropagation();
                                         }}
                                       >
                                         {service.name} <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -300,11 +287,14 @@ const Header = () => {
                                 }
                                 return (
                                   <li key={index}>
-                                    <button
-                                      onClick={(e) => handleServiceClick(service.path, e)}
+                                    <Link
+                                      to={service.path}
                                       className="text-sm text-gray-600 hover:text-black transition-colors duration-150
                                         border-l-2 border-transparent hover:border-black pl-2 sm:pl-3 py-1 sm:py-2 block w-full text-left
                                         hover:bg-gray-50 rounded-r-md"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                      }}
                                     >
                                       <div className="font-medium text-sm sm:text-base">{service.name}</div>
                                       {service.description && (
@@ -312,7 +302,7 @@ const Header = () => {
                                           {service.description}
                                         </div>
                                       )}
-                                    </button>
+                                    </Link>
                                   </li>
                                 );
                               })}
@@ -331,7 +321,9 @@ const Header = () => {
                                     to={subItem.path}
                                     className="text-sm text-gray-600 hover:text-black transition-colors block py-1 sm:py-2 px-2
                                       hover:bg-gray-50 rounded-md"
-                                    onClick={(e) => handleDesktopLinkClick(e)}
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                    }}
                                   >
                                     {subItem.name}
                                   </Link>

@@ -72,14 +72,13 @@ const AlliancesSection = () => {
 
     let animationFrameId;
     let scrollPosition = 0;
-    const scrollSpeed = 0.5; // Adjust speed here (pixels per frame)
+    const scrollSpeed = 0.5;
     let isPaused = false;
 
     const animateScroll = () => {
       if (!isPaused) {
         scrollPosition -= scrollSpeed;
         
-        // Reset scroll position when scrolled through one set of partners
         if (Math.abs(scrollPosition) >= scrollContainer.scrollWidth / 2) {
           scrollPosition = 0;
         }
@@ -89,7 +88,6 @@ const AlliancesSection = () => {
       animationFrameId = requestAnimationFrame(animateScroll);
     };
 
-    // Pause animation on hover
     const handleMouseEnter = () => {
       isPaused = true;
       scrollContainer.style.transition = 'transform 0.3s ease-out';
@@ -105,7 +103,6 @@ const AlliancesSection = () => {
       containerRef.current.addEventListener('mouseleave', handleMouseLeave);
     }
 
-    // Start animation
     animateScroll();
 
     return () => {
@@ -120,15 +117,20 @@ const AlliancesSection = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Header - UPDATED TYPOGRAPHY */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
-            Technology Partnerships
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Trusted <span className="text-blue-600">Technology Partners</span>
+          {/* Section label - 14px, weight 600, tracking-[0.3em] */}
+          <div className="text-sm font-semibold tracking-[0.3em] uppercase text-gray-500 mb-4">
+            Strategic Partnerships
+          </div>
+          
+          {/* Main heading - 36px mobile, 48px desktop, weight 300, tracking-tight */}
+          <h2 className="text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-6">
+            Our Trusted <span className="text-blue-600 font-medium">Technology Partners</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          
+          {/* Description text - 14px, weight 400 */}
+          <p className="text-sm text-gray-600 max-w-3xl mx-auto">
             We collaborate with industry-leading platforms to deliver cutting-edge solutions 
             and drive digital transformation for our clients.
           </p>
@@ -168,7 +170,7 @@ const AlliancesSection = () => {
                           const container = e.target.parentElement;
                           container.innerHTML = `
                             <div class="w-full h-full flex items-center justify-center">
-                              <div class="text-xl font-bold text-gray-700">
+                              <div class="text-sm font-medium text-gray-700">
                                 ${partner.name}
                               </div>
                             </div>
@@ -177,7 +179,7 @@ const AlliancesSection = () => {
                       />
                     </div>
                     
-                    {/* Partner Name */}
+                    {/* Partner Name - 14px, weight 500 */}
                     <div className="text-center">
                       <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors">
                         {partner.name}
@@ -193,12 +195,12 @@ const AlliancesSection = () => {
               ))}
             </div>
 
-            {/* Gradient overlays for smooth edges */}
+            {/* Gradient overlays */}
             <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
             <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
           </div>
 
-          {/* Scroll indicator */}
+          {/* Scroll indicator - 14px, weight 400 */}
           <div className="flex justify-center items-center gap-2 mt-4">
             <div className="w-2 h-2 rounded-full bg-blue-300 animate-pulse"></div>
             <span className="text-sm text-gray-500">Auto-scrolling partners</span>
@@ -229,7 +231,7 @@ const AlliancesSection = () => {
                       const container = e.target.parentElement;
                       container.innerHTML = `
                         <div class="w-full h-full flex items-center justify-center">
-                          <div class="text-lg font-bold text-gray-700">
+                          <div class="text-xs font-medium text-gray-700">
                             ${partner.name}
                           </div>
                         </div>
@@ -238,6 +240,7 @@ const AlliancesSection = () => {
                   />
                 </div>
                 
+                {/* Partner Name - 12px, weight 500 */}
                 <div className="text-center">
                   <span className="text-xs font-medium text-gray-600 group-hover:text-gray-900 transition-colors">
                     {partner.name}
@@ -251,10 +254,13 @@ const AlliancesSection = () => {
         {/* Partnership Benefits */}
         <div className="mb-16">
           <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            {/* Section heading - 24px, weight 500 */}
+            <h3 className="text-2xl font-medium text-gray-900 mb-4">
               Benefits of Our Partnerships
             </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            
+            {/* Description - 14px, weight 400 */}
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               Our strategic alliances enable us to deliver exceptional value through exclusive access and expertise.
             </p>
           </div>
@@ -266,8 +272,12 @@ const AlliancesSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Early Access</h4>
-              <p className="text-gray-600 text-sm">
+              
+              {/* Benefit title - 16px, weight 500 */}
+              <h4 className="text-base font-medium text-gray-900 mb-2">Early Access</h4>
+              
+              {/* Benefit description - 14px, weight 400 */}
+              <p className="text-sm text-gray-600">
                 Get early access to new features, betas, and product updates before general release.
               </p>
             </div>
@@ -278,8 +288,12 @@ const AlliancesSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Certified Experts</h4>
-              <p className="text-gray-600 text-sm">
+              
+              {/* Benefit title - 16px, weight 500 */}
+              <h4 className="text-base font-medium text-gray-900 mb-2">Certified Experts</h4>
+              
+              {/* Benefit description - 14px, weight 400 */}
+              <p className="text-sm text-gray-600">
                 Our team includes certified specialists with deep expertise in partner platforms.
               </p>
             </div>
@@ -290,8 +304,12 @@ const AlliancesSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">API Access</h4>
-              <p className="text-gray-600 text-sm">
+              
+              {/* Benefit title - 16px, weight 500 */}
+              <h4 className="text-base font-medium text-gray-900 mb-2">API Access</h4>
+              
+              {/* Benefit description - 14px, weight 400 */}
+              <p className="text-sm text-gray-600">
                 Exclusive API access and integration capabilities for seamless connectivity.
               </p>
             </div>
@@ -302,8 +320,12 @@ const AlliancesSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Co-Marketing</h4>
-              <p className="text-gray-600 text-sm">
+              
+              {/* Benefit title - 16px, weight 500 */}
+              <h4 className="text-base font-medium text-gray-900 mb-2">Co-Marketing</h4>
+              
+              {/* Benefit description - 14px, weight 400 */}
+              <p className="text-sm text-gray-600">
                 Joint marketing initiatives and go-to-market strategies for mutual growth.
               </p>
             </div>
@@ -313,31 +335,40 @@ const AlliancesSection = () => {
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-center text-white">
           <div className="max-w-2xl mx-auto">
-            <h3 className="text-3xl font-bold mb-4">
+            {/* CTA Title - 30px, weight 300 */}
+            <h3 className="text-3xl font-light text-white mb-4">
               Interested in Partnership?
             </h3>
-            <p className="text-blue-100 mb-8 text-lg">
+            
+            {/* CTA Description - 14px, weight 400 */}
+            <p className="text-blue-100 mb-8 text-sm">
               Join our network of technology partners and unlock new business opportunities.
             </p>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* CTA Button - 14px, weight 500 */}
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-all transform hover:scale-105 text-sm"
               >
                 Become a Partner
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
+              
+              {/* Secondary CTA Button - 14px, weight 500 */}
               <a
                 href="/partners"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-all text-sm"
               >
                 View All Partnerships
               </a>
             </div>
-            <p className="mt-6 text-sm text-blue-200">
-              Contact us at <span className="font-bold">partnerships@yourbrand.com</span>
+            
+            {/* Contact info - 12px, weight 400 */}
+            <p className="mt-6 text-xs text-blue-200">
+              Contact us at <span className="font-medium">partnerships@yourbrand.com</span>
             </p>
           </div>
         </div>
