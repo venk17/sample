@@ -161,10 +161,23 @@ const Header = () => {
     };
   }, [activeDropdown]);
 
-  // Handle service click
-  const handleServiceClick = (path) => {
+  // Handle service click in desktop
+  const handleServiceClick = (path, e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    navigate(path);
+    setActiveDropdown(null);
+  };
+
+  // Handle service click in mobile
+  const handleMobileServiceClick = (path) => {
     navigate(path);
     setIsMobileMenuOpen(false);
+    setMobileOpenDropdown(null);
+  };
+
+  // Handle regular link click in desktop dropdown
+  const handleDesktopLinkClick = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
     setActiveDropdown(null);
   };
 
@@ -239,9 +252,12 @@ const Header = () => {
                           ? "text-gray-700 hover:text-black"
                           : "text-white hover:opacity-80"}
                       `}
-                      onClick={() => setActiveDropdown(
-                        activeDropdown === item.name ? null : item.name
-                      )}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent bubbling
+                        setActiveDropdown(
+                          activeDropdown === item.name ? null : item.name
+                        );
+                      }}
                     >
                       {item.name}
                       <ChevronDown className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-200 ${
@@ -273,7 +289,9 @@ const Header = () => {
                                       <Link
                                         to={service.path}
                                         className="text-sm font-semibold text-blue-600 hover:text-blue-800 inline-flex items-center gap-1"
-                                        onClick={() => setActiveDropdown(null)}
+                                        onClick={(e) => {
+                                          handleDesktopLinkClick(e);
+                                        }}
                                       >
                                         {service.name} <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
                                       </Link>
@@ -283,7 +301,7 @@ const Header = () => {
                                 return (
                                   <li key={index}>
                                     <button
-                                      onClick={() => handleServiceClick(service.path)}
+                                      onClick={(e) => handleServiceClick(service.path, e)}
                                       className="text-sm text-gray-600 hover:text-black transition-colors duration-150
                                         border-l-2 border-transparent hover:border-black pl-2 sm:pl-3 py-1 sm:py-2 block w-full text-left
                                         hover:bg-gray-50 rounded-r-md"
@@ -313,7 +331,7 @@ const Header = () => {
                                     to={subItem.path}
                                     className="text-sm text-gray-600 hover:text-black transition-colors block py-1 sm:py-2 px-2
                                       hover:bg-gray-50 rounded-md"
-                                    onClick={() => setActiveDropdown(null)}
+                                    onClick={(e) => handleDesktopLinkClick(e)}
                                   >
                                     {subItem.name}
                                   </Link>
@@ -430,7 +448,7 @@ const Header = () => {
                                       .map((service, index) => (
                                         <li key={index}>
                                           <button
-                                            onClick={() => handleServiceClick(service.path)}
+                                            onClick={() => handleMobileServiceClick(service.path)}
                                             className="text-sm text-gray-500 hover:text-black transition-colors block py-3 pl-3 border-l border-gray-200 hover:border-black w-full text-left"
                                           >
                                             <div className="font-medium">{service.name}</div>

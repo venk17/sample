@@ -1,6 +1,10 @@
 import { ArrowRight, Play, Pause } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import heroVideo1 from "../assets/videos/hero1.mp4";
+import heroVideo2 from "../assets/videos/hero2.mp4";
+import heroVideo3 from "../assets/videos/hero3.mp4";
+import heroImg3 from "../assets/images/heroImg3.png"
 
 const slides = [
   {
@@ -9,7 +13,7 @@ const slides = [
   },
   {
     type: "video",
-    src: "https://www.w3schools.com/html/mov_bbb.mp4"
+    src: heroVideo1
   },
   {
     type: "image",
@@ -17,7 +21,14 @@ const slides = [
   },
   {
     type: "video",
-    src: "https://www.w3schools.com/html/movie.mp4"
+    src: heroVideo2
+  }, {
+    type: "image",
+    src: heroImg3
+  },
+  {
+    type: "video",
+    src: heroVideo3
   }
 ];
 

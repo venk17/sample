@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const AlliancesSection = () => {
   const [hoveredPartner, setHoveredPartner] = useState(null);
+  const containerRef = useRef(null);
+  const scrollRef = useRef(null);
 
   const partners = [
     { 
@@ -61,8 +63,62 @@ const AlliancesSection = () => {
     }
   ];
 
+  // Double the partners array for seamless infinite scroll
+  const doubledPartners = [...partners, ...partners];
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationFrameId;
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5; // Adjust speed here (pixels per frame)
+    let isPaused = false;
+
+    const animateScroll = () => {
+      if (!isPaused) {
+        scrollPosition -= scrollSpeed;
+        
+        // Reset scroll position when scrolled through one set of partners
+        if (Math.abs(scrollPosition) >= scrollContainer.scrollWidth / 2) {
+          scrollPosition = 0;
+        }
+        
+        scrollContainer.style.transform = `translateX(${scrollPosition}px)`;
+      }
+      animationFrameId = requestAnimationFrame(animateScroll);
+    };
+
+    // Pause animation on hover
+    const handleMouseEnter = () => {
+      isPaused = true;
+      scrollContainer.style.transition = 'transform 0.3s ease-out';
+    };
+
+    const handleMouseLeave = () => {
+      isPaused = false;
+      scrollContainer.style.transition = 'transform 0.1s linear';
+    };
+
+    if (containerRef.current) {
+      containerRef.current.addEventListener('mouseenter', handleMouseEnter);
+      containerRef.current.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    // Start animation
+    animateScroll();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      if (containerRef.current) {
+        containerRef.current.removeEventListener('mouseenter', handleMouseEnter);
+        containerRef.current.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, []);
+
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -78,9 +134,80 @@ const AlliancesSection = () => {
           </p>
         </div>
 
-        {/* Partners Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-16">
-          {partners.map((partner, index) => (
+        {/* Auto-scrolling Partners Marquee */}
+        <div className="relative mb-16">
+          <div 
+            ref={containerRef}
+            className="relative overflow-hidden py-4"
+          >
+            <div 
+              ref={scrollRef}
+              className="flex items-center gap-6 w-max"
+              style={{ willChange: 'transform' }}
+            >
+              {doubledPartners.map((partner, index) => (
+                <a
+                  key={index}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex-shrink-0"
+                  onMouseEnter={() => setHoveredPartner(index % partners.length)}
+                  onMouseLeave={() => setHoveredPartner(null)}
+                >
+                  <div className="bg-white rounded-2xl p-6 w-48 h-40 flex flex-col items-center justify-center border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
+                    {/* Logo Container */}
+                    <div className="w-full h-20 flex items-center justify-center mb-4">
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
+                        className="max-h-12 w-auto object-contain opacity-100 transition-all duration-300"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          const container = e.target.parentElement;
+                          container.innerHTML = `
+                            <div class="w-full h-full flex items-center justify-center">
+                              <div class="text-xl font-bold text-gray-700">
+                                ${partner.name}
+                              </div>
+                            </div>
+                          `;
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Partner Name */}
+                    <div className="text-center">
+                      <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors">
+                        {partner.name}
+                      </span>
+                    </div>
+
+                    {/* Hover Indicator */}
+                    <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-8 h-1 bg-blue-500 rounded-full mx-auto"></div>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            {/* Gradient overlays for smooth edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="flex justify-center items-center gap-2 mt-4">
+            <div className="w-2 h-2 rounded-full bg-blue-300 animate-pulse"></div>
+            <span className="text-sm text-gray-500">Auto-scrolling partners</span>
+          </div>
+        </div>
+
+        {/* Static Grid for Mobile/Tablet */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-16 lg:hidden">
+          {partners.slice(0, 12).map((partner, index) => (
             <a
               key={index}
               href={partner.url}
@@ -90,21 +217,19 @@ const AlliancesSection = () => {
               onMouseEnter={() => setHoveredPartner(index)}
               onMouseLeave={() => setHoveredPartner(null)}
             >
-              <div className="bg-white rounded-2xl p-6 h-full flex flex-col items-center justify-center border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                {/* Logo Container */}
-                <div className="w-full h-20 flex items-center justify-center mb-4">
+              <div className="bg-white rounded-2xl p-4 h-36 flex flex-col items-center justify-center border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
+                <div className="w-full h-16 flex items-center justify-center mb-3">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="max-h-12 w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                    className="max-h-10 w-auto object-contain opacity-100 transition-all duration-300"
                     loading="lazy"
                     onError={(e) => {
-                      // Fallback to text if image fails
                       e.target.style.display = 'none';
                       const container = e.target.parentElement;
                       container.innerHTML = `
                         <div class="w-full h-full flex items-center justify-center">
-                          <div class="text-xl font-bold text-gray-700">
+                          <div class="text-lg font-bold text-gray-700">
                             ${partner.name}
                           </div>
                         </div>
@@ -113,16 +238,10 @@ const AlliancesSection = () => {
                   />
                 </div>
                 
-                {/* Partner Name */}
                 <div className="text-center">
-                  <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors">
+                  <span className="text-xs font-medium text-gray-600 group-hover:text-gray-900 transition-colors">
                     {partner.name}
                   </span>
-                </div>
-
-                {/* Hover Indicator */}
-                <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-8 h-1 bg-blue-500 rounded-full mx-auto"></div>
                 </div>
               </div>
             </a>
