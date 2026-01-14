@@ -19,6 +19,7 @@ import CaseStudyDetailPage from "./pages/Insights/CaseStudyDetail";
 import AboutPage  from "./pages/WhoWeAre/AboutPage";
 import TeamPage from './pages/WhoWeAre/TeamPage';
 import CareersPage from './pages/WhoWeAre/CareersPage';
+import PartnersPage from './pages/PartnersPage';
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Routes>
             {/* Home Page */}
             <Route path="/" element={<Home />} />
+             <Route path="/partners" element={<PartnersPage/>} />
             
             {/* Services Overview */}
             <Route path="/services" element={<ServicesPage />} />
