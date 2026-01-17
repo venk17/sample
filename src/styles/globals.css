@@ -226,3 +226,6 @@ body {
   animation: marquee 28s linear infinite;
 }
 
+body {
+  text-rendering: optimizeLegibility;
+}

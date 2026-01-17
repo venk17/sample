@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { ChevronDown, Menu, X, Globe, ChevronRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import ScrollProgressBar from "./ScrollProgressBar";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -9,6 +10,7 @@ const Header = () => {
   const [showTopBar, setShowTopBar] = useState(true);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
   const dropdownRefs = useRef({});
+  const headerRef = useRef(null);
   const navigate = useNavigate();
 
   // 🔁 CHANGE THIS ADDRESS ANYTIME
@@ -85,7 +87,6 @@ const Header = () => {
   ];
 
   const navigation = [
-    
     { 
       name: "DD Insights", 
       dropdown: true,
@@ -170,6 +171,7 @@ const Header = () => {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
         ${isScrolled ? "bg-white shadow-lg" : "bg-transparent"}
       `}
@@ -500,6 +502,9 @@ const Header = () => {
           </>
         )}
       </div>
+
+      {/* PROGRESS BAR - Add this line */}
+      <ScrollProgressBar headerRef={headerRef} />
     </header>
   );
 };

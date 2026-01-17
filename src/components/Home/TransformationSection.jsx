@@ -41,16 +41,16 @@ const TransformationSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white font-sans">
+    <section className="py-24 bg-white font-sans antialiased">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* LABEL */}
-        <p className="uppercase tracking-[0.3em] text-sm font-semibold mb-4 text-black">
+        <h1 className="uppercase tracking-[0.35em] text-[30px] font-bold mb-6 text-black">
           Trending Topics
-        </p>
+        </h1>
 
         {/* HEADING */}
-        <h2 className="text-4xl lg:text-5xl font-light mb-16 max-w-4xl leading-tight tracking-tight text-black">
+        <h2 className="text-[42px] lg:text-[56px] font-light mb-20 max-w-4xl leading-[1.08] tracking-tight text-black">
           Transforming complexity into business advantage
         </h2>
 
@@ -72,7 +72,7 @@ const TransformationSection = () => {
 
                 {/* DEFAULT STATE */}
                 <div className="absolute bottom-6 left-6 right-6 text-white transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-6">
-                  <h3 className="text-xl font-light leading-snug tracking-tight">
+                  <h3 className="text-[22px] font-light leading-snug tracking-tight">
                     {item.title}
                   </h3>
                 </div>
@@ -81,18 +81,18 @@ const TransformationSection = () => {
                 <div className="absolute inset-0 p-6 text-white flex flex-col opacity-0 translate-y-6 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0">
 
                   <div>
-                    <h3 className="text-xl font-light leading-snug tracking-tight mb-3">
+                    <h3 className="text-[22px] font-light leading-snug tracking-tight mb-3">
                       {item.title}
                     </h3>
 
-                    <p className="text-sm text-gray-200 leading-relaxed">
+                    <p className="text-[14px] text-gray-200 leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
 
                   <div className="flex-grow" />
 
-                  <span className="text-sm font-medium tracking-wide">
+                  <span className="text-[14px] font-medium tracking-wide">
                     {item.link}
                   </span>
 

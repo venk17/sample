@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import CookieConsent from "./components/CookieConsent";
 import Home from './pages/Home';
 import ServicesPage from './pages/ServicesPage';
 import BusinessMarketIntelligence from './pages/services/BusinessMarketIntelligence';
@@ -20,6 +20,7 @@ import AboutPage  from "./pages/WhoWeAre/AboutPage";
 import TeamPage from './pages/WhoWeAre/TeamPage';
 import CareersPage from './pages/WhoWeAre/CareersPage';
 import PartnersPage from './pages/PartnersPage';
+import ScrollProgressBar from './components/ScrollProgressBar';
 
 
 
@@ -29,6 +30,7 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
         <Header />
+        <ScrollProgressBar/>
         
         <main className="flex-grow">
           <Routes>
@@ -72,6 +74,8 @@ function App() {
         </main>
 
         <Footer />
+         {/* 👇 Cookie Popup here */}
+        <CookieConsent />
       </div>
     </Router>
   );

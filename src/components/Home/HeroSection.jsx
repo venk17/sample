@@ -1,10 +1,9 @@
 import { ArrowRight, Play, Pause } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import heroVideo1 from "../assets/videos/hero1.mp4";
-import heroVideo2 from "../assets/videos/hero2.mp4";
-import heroVideo3 from "../assets/videos/hero3.mp4";
-import heroImg3 from "../assets/images/heroImg3.png"
+import heroVideo1 from "../../assets/videos/hero1.mp4";
+import heroVideo3 from "../../assets/videos/hero3.mp4";
+
 
 const slides = [
   {
