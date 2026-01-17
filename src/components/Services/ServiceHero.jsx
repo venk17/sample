@@ -2,7 +2,7 @@ import { Linkedin, Twitter, Mail, Link as LinkIcon } from "lucide-react";
 
 const ServiceHero = ({ title, subtitle, videoSrc }) => {
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden text-white">
+    <section className="relative h-[70vh] md:h-[85vh] w-full overflow-hidden text-white">
 
       {/* VIDEO BG */}
       <video
@@ -17,8 +17,8 @@ const ServiceHero = ({ title, subtitle, videoSrc }) => {
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/60" />
 
-      {/* LEFT SOCIAL BAR */}
-      <div className="absolute left-6 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-4">
+      {/* LEFT SOCIAL BAR – desktop only */}
+      <div className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 flex-col items-center gap-4">
 
         <span className="text-xs tracking-widest rotate-90 mb-6 opacity-80">
           SHARE
@@ -33,13 +33,13 @@ const ServiceHero = ({ title, subtitle, videoSrc }) => {
 
       {/* CONTENT */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-16">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight max-w-4xl mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light leading-tight max-w-4xl mb-4 md:mb-6">
             {title}
           </h1>
 
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed">
+          <p className="text-sm sm:text-base md:text-xl text-white/90 max-w-3xl leading-relaxed">
             {subtitle}
           </p>
 
@@ -50,7 +50,7 @@ const ServiceHero = ({ title, subtitle, videoSrc }) => {
 };
 
 const SocialIcon = ({ children }) => (
-  <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-black transition cursor-pointer">
+  <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-black transition cursor-pointer">
     {children}
   </div>
 );
