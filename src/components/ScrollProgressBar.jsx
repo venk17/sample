@@ -1,23 +1,44 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const ScrollProgressBar = ({ headerRef }) => {
   const [scroll, setScroll] = useState(0);
   const [topOffset, setTopOffset] = useState(0);
 
-  // calculate header height
-  useEffect(() => {
-    const updateOffset = () => {
+  // Calculate header height with requestAnimationFrame for smooth updates
+  const updateOffset = useCallback(() => {
+    requestAnimationFrame(() => {
       if (headerRef?.current) {
         setTopOffset(headerRef.current.offsetHeight);
       }
-    };
-
-    updateOffset();
-    window.addEventListener("resize", updateOffset);
-    return () => window.removeEventListener("resize", updateOffset);
+    });
   }, [headerRef]);
 
-  // scroll progress
+  // Initial calculation and observe changes
+  useEffect(() => {
+    updateOffset();
+    
+    // Listen for resize events
+    window.addEventListener("resize", updateOffset);
+    
+    // Create a MutationObserver to watch for DOM changes in the header
+    const observer = new MutationObserver(updateOffset);
+    
+    if (headerRef?.current) {
+      observer.observe(headerRef.current, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    }
+    
+    return () => {
+      window.removeEventListener("resize", updateOffset);
+      observer.disconnect();
+    };
+  }, [headerRef, updateOffset]);
+
+  // Scroll progress
   useEffect(() => {
     const onScroll = () => {
       const scrolled = window.scrollY;
@@ -34,7 +55,7 @@ const ScrollProgressBar = ({ headerRef }) => {
 
   return (
     <div
-      className="fixed left-0 w-full h-[3px] z-[40]"
+      className="fixed left-0 w-full h-[3px] z-[40] transition-top duration-300 ease-in-out"
       style={{ top: `${topOffset}px` }}
     >
       <div
