@@ -1,158 +1,180 @@
-import React from 'react';
-import ServiceLayout from '../../components/Layout/ServiceLayout';
-import { 
-  Cpu, Zap, Brain, Database, LineChart, Target,
-  Users, Shield, Globe, TrendingUp, BarChart, Filter,
-  Search, MessageSquare, Building
-} from 'lucide-react';
+import ServiceHero from "../../components/Services/ServiceHero";
+import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
+import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
+import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
+import ServiceCtaBanner from "../../components/Services/ServiceCtaBanner";
+import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid";
+import QuoteBanner from "../../components/Services/QuoteBanner";
+import FeaturedAccelerators from "../../components/Services/FeaturedAccelerators";
+import OurWorkSection from "../../components/Services/OurWorkSection";
+import QuoteCtaSection from "../../components/Services/QuoteCtaSection";
+import InsightCardsSection from "../../components/Services/InsightCardsSection";
 
-const AIAutomation = () => {
-  const serviceData = {
-    title: "AI & Automation Enablement",
-    subtitle: "Leverage artificial intelligence and automation to drive efficiency, innovation, and competitive advantage",
-    description: "We help organizations identify, implement, and scale AI and automation solutions that transform operations, enhance customer experiences, and create new business opportunities through cutting-edge technology and strategic implementation.",
-    icon: Cpu,
-    iconColor: 'indigo',
-    
-    stats: [
-      { value: "70%", label: "Efficiency Gain", description: "Average process efficiency improvement" },
-      { value: "50%", label: "Cost Reduction", description: "In operational costs" },
-      { value: "4x", label: "ROI", description: "Average return on AI investments" },
-      { value: "30%", label: "Revenue Growth", description: "From AI-enabled products/services" }
+const helpItems = [
+  {
+    title: "Customer & Commercial Strategy",
+    description:
+      "We help you define your agenda. Our researchers and strategists help develop initiatives that fuel innovation, drive growth, reduce costs, and accelerate time-to-value.",
+    services: [
+      "Brand and experience strategy",
+      "Customer engagement strategy",
+      "Go-to-market planning",
+      "Social and influencer strategy",
+      "Campaign content development",
     ],
-    
-    features: [
-      {
-        title: "Process Automation",
-        description: "Automate repetitive tasks and workflows for efficiency gains",
-        icon: Zap
-      },
-      {
-        title: "AI Strategy",
-        description: "Develop AI roadmaps aligned with business objectives",
-        icon: Target
-      },
-      {
-        title: "Machine Learning",
-        description: "Implement predictive models and intelligent systems",
-        icon: Brain
-      },
-      {
-        title: "Intelligent Chatbots",
-        description: "Create AI-powered customer service solutions",
-        icon: MessageSquare
-      },
-      {
-        title: "Data Analytics",
-        description: "Leverage AI for advanced analytics and insights",
-        icon: BarChart
-      },
-      {
-        title: "AI Integration",
-        description: "Integrate AI capabilities into existing systems",
-        icon: Database
-      }
+  },
+  {
+    title: "Creative & Experience Design",
+    description:
+      "Designing world-class customer experiences across digital platforms.",
+    services: ["UX design", "UI design", "Design systems"],
+  },
+  {
+    title: "Digital Transformation",
+    description:
+      "We modernize your technology and operations to enable scalable digital growth and innovation.",
+    services: [
+      "Digital roadmap",
+      "Technology modernization",
+      "Cloud migration",
+      "Process automation",
     ],
-    
-    sections: [
-      {
-        title: "AI Strategy & Implementation",
-        content: "Develop and implement AI strategies that deliver measurable business value and competitive advantage.",
-        icon: Target,
-        points: [
-          "AI opportunity assessment and prioritization",
-          "Use case identification and business case development",
-          "Technology selection and architecture design",
-          "Data strategy and infrastructure",
-          "Model development and training",
-          "Implementation roadmap and change management"
-        ]
-      },
-      {
-        title: "Intelligent Automation",
-        content: "Automate business processes using AI and robotic process automation to drive efficiency and accuracy.",
-        icon: Zap,
-        points: [
-          "Process discovery and automation potential assessment",
-          "RPA implementation and integration",
-          "Intelligent document processing",
-          "Workflow automation design",
-          "Exception handling and escalation",
-          "Performance monitoring and optimization"
-        ]
-      }
+  },
+  {
+    title: "Data & Analytics",
+    description:
+      "Turning data into actionable insights to improve decision-making and business performance.",
+    services: [
+      "Business intelligence",
+      "Customer analytics",
+      "AI & machine learning",
+      "Data platforms",
     ],
-    
-    processSteps: [
-      {
-        title: "Assessment & Opportunity Mapping",
-        description: "Identify high-impact AI and automation opportunities",
-        icon: Search,
-        duration: "2-3 Weeks"
-      },
-      {
-        title: "Proof of Concept",
-        description: "Develop and test AI solutions with real data",
-        icon: Brain,
-        duration: "4-6 Weeks"
-      },
-      {
-        title: "Solution Development",
-        description: "Build and train AI models, implement automation",
-        icon: Cpu,
-        duration: "6-10 Weeks"
-      },
-      {
-        title: "Scaling & Integration",
-        description: "Deploy at scale and integrate with business processes",
-        icon: TrendingUp,
-        duration: "4-8 Weeks"
-      }
-    ],
-    
-    caseStudies: [
-      {
-        title: "Customer Service Automation",
-        industry: "Telecommunications",
-        description: "Implemented AI-powered chatbots and automation for customer service",
-        result: "65% reduction in support costs"
-      },
-      {
-        title: "Manufacturing Optimization",
-        industry: "Manufacturing",
-        description: "Deployed AI for predictive maintenance and quality control",
-        result: "40% reduction in downtime"
-      }
-    ],
-    
-    testimonials: [
-      {
-        name: "James Wilson",
-        position: "CIO",
-        company: "ConnectTel",
-        quote: "The AI automation implementation transformed our customer service. We handle 3x more queries with higher satisfaction scores."
-      },
-      {
-        name: "Fatima Al-Mansoori",
-        position: "Operations Director",
-        company: "Precision Manufacturing",
-        quote: "Predictive maintenance AI has saved us millions in downtime and maintenance costs. The ROI was achieved in just 4 months."
-      }
-    ],
-    
-    faqs: [
-      {
-        question: "How do you ensure AI solutions are ethical and responsible?",
-        answer: "We follow responsible AI principles including fairness, transparency, privacy, and accountability. We conduct bias testing, provide explainability, and ensure compliance with regulations."
-      },
-      {
-        question: "Do we need to have advanced technical capabilities to implement AI?",
-        answer: "Not necessarily. We provide end-to-end support including strategy, implementation, and training. We can work with your existing team or provide additional resources as needed."
-      }
-    ]
-  };
+  },
+];
 
-  return <ServiceLayout data={serviceData} />;
+const acceleratorsData = [
+  {
+    name: "TrustID™",
+    description:
+      "The Human Experience (HX™) TrustID™ is a data-driven tool that identifies trust strengths and deficits—so you can start closing the gaps. What's your business' trust score?",
+    link: "#"
+  },
+  {
+    name: "BrandWorth™",
+    description:
+      "BrandWorth™ is a powerful new way to measure the impact of brand investment. Make brand a C-suite priority and drive growth for your business.",
+    link: "#"
+  },
+  {
+    name: "Human Experience™",
+    description:
+      "HX™ helps leaders who are responsible for their organization’s customer, workforce, and partner experiences create valuable solutions that put humans first.",
+    link: "#"
+  }
+];
+
+const workData = [
+  {
+    image: "https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg",
+    category: "Fan Experience",
+    client: "WNBA",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/290275/pexels-photo-290275.jpeg",
+    category: "Customer Journey",
+    client: "SoFi Stadium",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
+    category: "Experience Strategy",
+    client: "New Balance",
+    link: "#"
+  }
+];
+const Insightdata = [
+  {
+    image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
+    category: "Innovation Strategies",
+    title: "Make your organization innovation-ready with four bold strategies"
+  },
+  {
+    image: "https://images.pexels.com/photos/7709086/pexels-photo-7709086.jpeg",
+    category: "Marketing Beyond Podcast",
+    title: "Hear ways to write BetterBriefs that drive better marketing results"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  }
+];
+
+const AIAutomation= () => {
+  return (
+    <main className="overflow-hidden">
+      <ServiceHero
+        title="Customer & Commercial Strategy"
+        subtitle="Reshaping unprecedented challenges into strategic wins"
+        videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
+      />
+
+      <BusinessIntroSection />
+
+      <ServiceHelpSection
+        title="Here's how we can help you"
+        items={helpItems}
+      />
+      <ServiceQuoteSection
+        quote="The collaboration and experience across retail and digital experiences from Deloitte Digital enabled us to transform our company—and not just deliver a digital store but truly deliver for the fearlessly independent."
+        name="Damien Leigh"
+        role="SVP Direct to Consumer, New Balance"
+      />
+
+      <ServiceCtaBanner
+        label="GET INNOVATIVE"
+        title="Explore the Ten Types of Innovation"
+        buttonText="TEN TYPES OF INNOVATION"
+        buttonLink="/innovation"
+      />
+      <ServiceCapabilitiesGrid />
+      <QuoteBanner
+        quote="Today's customers are more empowered, wielding the power of choice and influence. To thrive, companies must embrace innovation, adaptability, and a keen understanding of what fosters trust through their products, services, and experiences."
+        author="Jon Valenti"
+        role="Principal, Deloitte Digital"
+      />
+      <FeaturedAccelerators
+        title="Featured Accelerators"
+        items={acceleratorsData}
+      />
+      <OurWorkSection
+        title="Our work in action"
+        subtitle="We create customer solutions that evolve with the times. Here's how."
+        items={workData}
+      />
+      <QuoteCtaSection
+          quote="We believe brands are financial assets, not just marketing assets. So we're helping clients develop data-driven strategies that benchmark the opportunity and enable the brand to transform the business."
+          author="Maggie Gross"
+          role="Principal, Deloitte Digital"
+          buttonText="IT'S TIME TO STRATEGIZE"
+          buttonLink="/contact"
+      />
+      <InsightCardsSection items={Insightdata} />
+      {/* Next sections here */}
+    </main>
+  );
 };
 
 export default AIAutomation;

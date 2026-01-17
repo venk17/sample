@@ -1,158 +1,180 @@
-import React from 'react';
-import ServiceLayout from '../../components/Layout/ServiceLayout';
-import { 
-  Users, Target, TrendingUp, BarChart, Award, BookOpen,
-  Shield, Zap, Globe, Cpu, Heart, MessageSquare,
-  Search, Building
-} from 'lucide-react';
+import ServiceHero from "../../components/Services/ServiceHero";
+import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
+import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
+import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
+import ServiceCtaBanner from "../../components/Services/ServiceCtaBanner";
+import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid";
+import QuoteBanner from "../../components/Services/QuoteBanner";
+import FeaturedAccelerators from "../../components/Services/FeaturedAccelerators";
+import OurWorkSection from "../../components/Services/OurWorkSection";
+import QuoteCtaSection from "../../components/Services/QuoteCtaSection";
+import InsightCardsSection from "../../components/Services/InsightCardsSection";
 
-const OrganisationCapability = () => {
-  const serviceData = {
-    title: "Organisation & Capability Building",
-    subtitle: "Build high-performing teams and organizational capabilities that drive sustainable growth",
-    description: "We help organizations develop the people, processes, and structures needed to execute strategy effectively, foster innovation, and adapt to changing market conditions through comprehensive capability building and organizational development.",
-    icon: Users,
-    iconColor: 'red',
-    
-    stats: [
-      { value: "45%", label: "Productivity Gain", description: "Average increase in team productivity" },
-      { value: "60%", label: "Employee Retention", description: "Improvement in retention rates" },
-      { value: "3.5x", label: "ROI", description: "Return on capability investments" },
-      { value: "85%", label: "Strategy Execution", description: "Improvement in strategic execution" }
+const helpItems = [
+  {
+    title: "Customer & Commercial Strategy",
+    description:
+      "We help you define your agenda. Our researchers and strategists help develop initiatives that fuel innovation, drive growth, reduce costs, and accelerate time-to-value.",
+    services: [
+      "Brand and experience strategy",
+      "Customer engagement strategy",
+      "Go-to-market planning",
+      "Social and influencer strategy",
+      "Campaign content development",
     ],
-    
-    features: [
-      {
-        title: "Leadership Development",
-        description: "Develop leaders who can drive transformation and inspire teams",
-        icon: Target
-      },
-      {
-        title: "Talent Management",
-        description: "Design systems to attract, develop, and retain top talent",
-        icon: Users
-      },
-      {
-        title: "Organizational Design",
-        description: "Structure organizations for agility and efficiency",
-        icon: BarChart
-      },
-      {
-        title: "Change Management",
-        description: "Guide organizations through transformation successfully",
-        icon: TrendingUp
-      },
-      {
-        title: "Learning & Development",
-        description: "Create continuous learning cultures and development programs",
-        icon: BookOpen
-      },
-      {
-        title: "Performance Management",
-        description: "Design systems to drive high performance and accountability",
-        icon: Award
-      }
+  },
+  {
+    title: "Creative & Experience Design",
+    description:
+      "Designing world-class customer experiences across digital platforms.",
+    services: ["UX design", "UI design", "Design systems"],
+  },
+  {
+    title: "Digital Transformation",
+    description:
+      "We modernize your technology and operations to enable scalable digital growth and innovation.",
+    services: [
+      "Digital roadmap",
+      "Technology modernization",
+      "Cloud migration",
+      "Process automation",
     ],
-    
-    sections: [
-      {
-        title: "Strategic Capability Building",
-        content: "Develop the specific capabilities your organization needs to execute its strategy successfully.",
-        icon: Target,
-        points: [
-          "Capability gap analysis and assessment",
-          "Skill development and training programs",
-          "Succession planning and leadership pipeline",
-          "Cross-functional team development",
-          "Innovation capability building",
-          "Digital literacy and technology adoption"
-        ]
-      },
-      {
-        title: "Organizational Development",
-        content: "Design and implement structures, processes, and cultures that enable high performance.",
-        icon: BarChart,
-        points: [
-          "Organizational structure design",
-          "Process optimization and workflow design",
-          "Culture assessment and development",
-          "Communication and collaboration systems",
-          "Performance measurement frameworks",
-          "Employee engagement strategies"
-        ]
-      }
+  },
+  {
+    title: "Data & Analytics",
+    description:
+      "Turning data into actionable insights to improve decision-making and business performance.",
+    services: [
+      "Business intelligence",
+      "Customer analytics",
+      "AI & machine learning",
+      "Data platforms",
     ],
-    
-    processSteps: [
-      {
-        title: "Assessment & Diagnosis",
-        description: "Evaluate current organizational capabilities and identify gaps",
-        icon: Search,
-        duration: "2-3 Weeks"
-      },
-      {
-        title: "Strategy Development",
-        description: "Create capability building roadmap and implementation plan",
-        icon: Target,
-        duration: "3 Weeks"
-      },
-      {
-        title: "Program Design",
-        description: "Develop training programs, processes, and systems",
-        icon: BookOpen,
-        duration: "4 Weeks"
-      },
-      {
-        title: "Implementation & Coaching",
-        description: "Roll out programs and provide ongoing support and coaching",
-        icon: Users,
-        duration: "3-6 Months"
-      }
-    ],
-    
-    caseStudies: [
-      {
-        title: "Digital Transformation Enablement",
-        industry: "Financial Services",
-        description: "Built digital capabilities across 5,000-person organization",
-        result: "75% faster digital product delivery"
-      },
-      {
-        title: "Leadership Development",
-        industry: "Manufacturing",
-        description: "Created leadership pipeline for global manufacturing company",
-        result: "95% internal promotion rate"
-      }
-    ],
-    
-    testimonials: [
-      {
-        name: "Robert Johnson",
-        position: "CHRO",
-        company: "Global Financial Corp",
-        quote: "Their capability building program transformed our organization. We went from struggling with digital transformation to leading in innovation."
-      },
-      {
-        name: "Sophie Martin",
-        position: "CEO",
-        company: "ManufactureTech",
-        quote: "The leadership development program created a pipeline of future-ready leaders. Our succession planning is now a competitive advantage."
-      }
-    ],
-    
-    faqs: [
-      {
-        question: "How do you measure the impact of capability building?",
-        answer: "We measure impact through productivity metrics, employee engagement scores, retention rates, skill assessments, and business performance indicators tied to strategic objectives."
-      },
-      {
-        question: "Can you work with remote or hybrid teams?",
-        answer: "Absolutely. We design programs that work effectively for distributed teams, using digital tools and platforms to enable learning and collaboration across locations."
-      }
-    ]
-  };
+  },
+];
 
-  return <ServiceLayout data={serviceData} />;
+const acceleratorsData = [
+  {
+    name: "TrustID™",
+    description:
+      "The Human Experience (HX™) TrustID™ is a data-driven tool that identifies trust strengths and deficits—so you can start closing the gaps. What's your business' trust score?",
+    link: "#"
+  },
+  {
+    name: "BrandWorth™",
+    description:
+      "BrandWorth™ is a powerful new way to measure the impact of brand investment. Make brand a C-suite priority and drive growth for your business.",
+    link: "#"
+  },
+  {
+    name: "Human Experience™",
+    description:
+      "HX™ helps leaders who are responsible for their organization’s customer, workforce, and partner experiences create valuable solutions that put humans first.",
+    link: "#"
+  }
+];
+
+const workData = [
+  {
+    image: "https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg",
+    category: "Fan Experience",
+    client: "WNBA",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/290275/pexels-photo-290275.jpeg",
+    category: "Customer Journey",
+    client: "SoFi Stadium",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
+    category: "Experience Strategy",
+    client: "New Balance",
+    link: "#"
+  }
+];
+const Insightdata = [
+  {
+    image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
+    category: "Innovation Strategies",
+    title: "Make your organization innovation-ready with four bold strategies"
+  },
+  {
+    image: "https://images.pexels.com/photos/7709086/pexels-photo-7709086.jpeg",
+    category: "Marketing Beyond Podcast",
+    title: "Hear ways to write BetterBriefs that drive better marketing results"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  }
+];
+
+const BusinessMarketIntelligence = () => {
+  return (
+    <main className="overflow-hidden">
+      <ServiceHero
+        title="Customer & Commercial Strategy"
+        subtitle="Reshaping unprecedented challenges into strategic wins"
+        videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
+      />
+
+      <BusinessIntroSection />
+
+      <ServiceHelpSection
+        title="Here's how we can help you"
+        items={helpItems}
+      />
+      <ServiceQuoteSection
+        quote="The collaboration and experience across retail and digital experiences from Deloitte Digital enabled us to transform our company—and not just deliver a digital store but truly deliver for the fearlessly independent."
+        name="Damien Leigh"
+        role="SVP Direct to Consumer, New Balance"
+      />
+
+      <ServiceCtaBanner
+        label="GET INNOVATIVE"
+        title="Explore the Ten Types of Innovation"
+        buttonText="TEN TYPES OF INNOVATION"
+        buttonLink="/innovation"
+      />
+      <ServiceCapabilitiesGrid />
+      <QuoteBanner
+        quote="Today's customers are more empowered, wielding the power of choice and influence. To thrive, companies must embrace innovation, adaptability, and a keen understanding of what fosters trust through their products, services, and experiences."
+        author="Jon Valenti"
+        role="Principal, Deloitte Digital"
+      />
+      <FeaturedAccelerators
+        title="Featured Accelerators"
+        items={acceleratorsData}
+      />
+      <OurWorkSection
+        title="Our work in action"
+        subtitle="We create customer solutions that evolve with the times. Here's how."
+        items={workData}
+      />
+      <QuoteCtaSection
+          quote="We believe brands are financial assets, not just marketing assets. So we're helping clients develop data-driven strategies that benchmark the opportunity and enable the brand to transform the business."
+          author="Maggie Gross"
+          role="Principal, Deloitte Digital"
+          buttonText="IT'S TIME TO STRATEGIZE"
+          buttonLink="/contact"
+      />
+      <InsightCardsSection items={Insightdata} />
+      {/* Next sections here */}
+    </main>
+  );
 };
 
-export default OrganisationCapability;
+export default BusinessMarketIntelligence;

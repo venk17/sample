@@ -1,158 +1,215 @@
-import React from 'react';
-import ServiceLayout from '../../components/Layout/ServiceLayout';
-import { 
-  TrendingUp, Target, Users, BarChart, Mail, MessageSquare,
-  Filter, Zap, DollarSign, Globe, PieChart, Cpu,
-  Search, Building
-} from 'lucide-react';
+import ServiceHero from "../../components/Services/ServiceHero";
+import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
+import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
+import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
+import AlliancesSection from "../../components/Services/AlliancesSection";
+import ServiceCtaBanner from "../../components/Services/ServiceCtaBanner";
+import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid";
+import QuoteBanner from "../../components/Services/QuoteBanner";
+import FeaturedAccelerators from "../../components/Services/FeaturedAccelerators";
+import OurWorkSection from "../../components/Services/OurWorkSection";
+import QuoteCtaSection from "../../components/Services/QuoteCtaSection";
+import InsightCardsSection from "../../components/Services/InsightCardsSection";
 
-const GrowthMarketing = () => {
-  const serviceData = {
-    title: "Growth, Marketing & Sales Systems",
-    subtitle: "Build scalable revenue engines that drive sustainable business growth",
-    description: "We design and implement integrated marketing and sales systems that attract, convert, and retain customers at scale, using data-driven strategies, automation, and optimization to maximize revenue growth and customer lifetime value.",
-    icon: TrendingUp,
-    iconColor: 'orange',
-    
-    stats: [
-      { value: "300%", label: "ROI", description: "Average return on marketing investment" },
-      { value: "50%", label: "Cost Reduction", description: "In customer acquisition costs" },
-      { value: "3x", label: "Lead Conversion", description: "Increase in lead-to-customer rate" },
-      { value: "40%", label: "Revenue Growth", description: "Annual revenue increase" }
+const helpItems = [
+  {
+    title: "Customer & Commercial Strategy",
+    description:
+      "We help you define your agenda. Our researchers and strategists help develop initiatives that fuel innovation, drive growth, reduce costs, and accelerate time-to-value.",
+    services: [
+      "Brand and experience strategy",
+      "Customer engagement strategy",
+      "Go-to-market planning",
+      "Social and influencer strategy",
+      "Campaign content development",
     ],
-    
-    features: [
-      {
-        title: "Growth Strategy",
-        description: "Develop data-driven growth plans and experimentation frameworks",
-        icon: Target
-      },
-      {
-        title: "Marketing Automation",
-        description: "Implement systems for lead nurturing and customer engagement",
-        icon: Zap
-      },
-      {
-        title: "Sales Enablement",
-        description: "Equip sales teams with tools, content, and processes to close more deals",
-        icon: DollarSign
-      },
-      {
-        title: "Performance Marketing",
-        description: "Optimize paid channels for maximum ROI",
-        icon: BarChart
-      },
-      {
-        title: "CRM Implementation",
-        description: "Design and implement customer relationship management systems",
-        icon: Users
-      },
-      {
-        title: "Analytics & Attribution",
-        description: "Track performance and optimize marketing spend",
-        icon: Filter
-      }
+  },
+  {
+    title: "Creative & Experience Design",
+    description:
+      "Designing world-class customer experiences across digital platforms.",
+    services: ["UX design", "UI design", "Design systems"],
+  },
+  {
+    title: "Digital Transformation",
+    description:
+      "We modernize your technology and operations to enable scalable digital growth and innovation.",
+    services: [
+      "Digital roadmap",
+      "Technology modernization",
+      "Cloud migration",
+      "Process automation",
     ],
-    
-    sections: [
-      {
-        title: "Integrated Marketing Strategy",
-        content: "Create cohesive marketing strategies that align sales and marketing efforts for maximum impact.",
-        icon: Target,
-        points: [
-          "Marketing funnel design and optimization",
-          "Channel strategy and media planning",
-          "Content strategy and creation",
-          "SEO and organic growth strategies",
-          "Social media and community building",
-          "Email marketing and automation"
-        ]
-      },
-      {
-        title: "Sales System Development",
-        content: "Build scalable sales processes and enablement systems that drive consistent revenue growth.",
-        icon: DollarSign,
-        points: [
-          "Sales process design and optimization",
-          "CRM selection and implementation",
-          "Sales team training and enablement",
-          "Proposal and pricing strategy",
-          "Sales analytics and forecasting",
-          "Customer retention programs"
-        ]
-      }
+  },
+  {
+    title: "Data & Analytics",
+    description:
+      "Turning data into actionable insights to improve decision-making and business performance.",
+    services: [
+      "Business intelligence",
+      "Customer analytics",
+      "AI & machine learning",
+      "Data platforms",
     ],
-    
-    processSteps: [
-      {
-        title: "Audit & Analysis",
-        description: "Assess current marketing and sales performance, identify opportunities",
-        icon: Search,
-        duration: "2 Weeks"
-      },
-      {
-        title: "Strategy Development",
-        description: "Create integrated growth strategy and implementation plan",
-        icon: Target,
-        duration: "3 Weeks"
-      },
-      {
-        title: "System Implementation",
-        description: "Implement marketing automation, CRM, and sales enablement tools",
-        icon: Zap,
-        duration: "4-6 Weeks"
-      },
-      {
-        title: "Optimization & Scaling",
-        description: "Monitor performance, optimize campaigns, and scale successful strategies",
-        icon: TrendingUp,
-        duration: "Ongoing"
-      }
-    ],
-    
-    caseStudies: [
-      {
-        title: "SaaS Company Growth",
-        industry: "Technology",
-        description: "Implemented integrated marketing and sales system for B2B SaaS company",
-        result: "Increased MRR by 250% in 12 months"
-      },
-      {
-        title: "E-commerce Scaling",
-        industry: "Retail",
-        description: "Developed omnichannel marketing strategy for DTC brand",
-        result: "3x customer acquisition at 40% lower cost"
-      }
-    ],
-    
-    testimonials: [
-      {
-        name: "Alex Thompson",
-        position: "CEO",
-        company: "SaaSStartup Inc",
-        quote: "Their growth marketing system transformed our business. We went from struggling to scale to consistent 20% month-over-month growth."
-      },
-      {
-        name: "Maria Garcia",
-        position: "VP of Marketing",
-        company: "StyleDirect",
-        quote: "The integrated approach to marketing and sales alignment was game-changing. Our sales cycle shortened by 40%."
-      }
-    ],
-    
-    faqs: [
-      {
-        question: "How quickly can we expect to see results?",
-        answer: "Initial improvements typically appear within 30-60 days, with full impact realized within 3-6 months as systems mature and optimize."
-      },
-      {
-        question: "Do you work with companies of all sizes?",
-        answer: "Yes, we work with startups to enterprise companies, tailoring our approach to each company's stage, budget, and growth objectives."
-      }
-    ]
-  };
+  },
+];
 
-  return <ServiceLayout data={serviceData} />;
+const acceleratorsData = [
+  {
+    name: "TrustID™",
+    description:
+      "The Human Experience (HX™) TrustID™ is a data-driven tool that identifies trust strengths and deficits—so you can start closing the gaps. What's your business' trust score?",
+    link: "#"
+  },
+  {
+    name: "BrandWorth™",
+    description:
+      "BrandWorth™ is a powerful new way to measure the impact of brand investment. Make brand a C-suite priority and drive growth for your business.",
+    link: "#"
+  },
+  {
+    name: "Human Experience™",
+    description:
+      "HX™ helps leaders who are responsible for their organization’s customer, workforce, and partner experiences create valuable solutions that put humans first.",
+    link: "#"
+  }
+];
+
+const workData = [
+  {
+    image: "https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg",
+    category: "Fan Experience",
+    client: "WNBA",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/290275/pexels-photo-290275.jpeg",
+    category: "Customer Journey",
+    client: "SoFi Stadium",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
+    category: "Experience Strategy",
+    client: "New Balance",
+    link: "#"
+  }
+];
+const Insightdata = [
+  {
+    image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
+    category: "Innovation Strategies",
+    title: "Make your organization innovation-ready with four bold strategies"
+  },
+  {
+    image: "https://images.pexels.com/photos/7709086/pexels-photo-7709086.jpeg",
+    category: "Marketing Beyond Podcast",
+    title: "Hear ways to write BetterBriefs that drive better marketing results"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  }
+];
+const alliancesData = [
+  {
+    name: "Adobe",
+    description: "Transforming next-gen digital commerce",
+    link: "/alliances/adobe"
+  },
+  {
+    name: "commercetools",
+    description: "Composable commerce platform for modern brands",
+    link: "/alliances/commercetools"
+  },
+  {
+    name: "Salesforce",
+    description: "Customer 360 digital solutions",
+    link: "/alliances/salesforce"
+  },
+  {
+    name: "SAP",
+    description: "Enterprise commerce & ERP integration",
+    link: "/alliances/sap"
+  },
+  {
+    name: "Shopify",
+    description: "Scalable ecommerce for fast-growing brands",
+    link: "/alliances/shopify"
+  }
+];
+
+const BusinessMarketIntelligence = () => {
+  return (
+    <main className="overflow-hidden">
+      <ServiceHero
+        title="Customer & Commercial Strategy"
+        subtitle="Reshaping unprecedented challenges into strategic wins"
+        videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
+      />
+
+      <BusinessIntroSection />
+      <ServiceQuoteSection
+        quote="The collaboration and experience across retail and digital experiences from Deloitte Digital enabled us to transform our company—and not just deliver a digital store but truly deliver for the fearlessly independent."
+        name="Damien Leigh"
+        role="SVP Direct to Consumer, New Balance"
+      />
+
+      <ServiceHelpSection
+        title="Here's how we can help you"
+        items={helpItems}
+      />
+      <AlliancesSection
+        title="The power of our alliances and accelerators"
+        subtitle="We can't do it alone. We've created strong alliances and accelerators with top industry and technology leaders."
+        items={alliancesData}
+        buttonText="Explore all our alliances"
+        buttonLink="/alliances"
+     />
+      
+      <ServiceCtaBanner
+        label="GET INNOVATIVE"
+        title="Explore the Ten Types of Innovation"
+        buttonText="TEN TYPES OF INNOVATION"
+        buttonLink="/innovation"
+      />
+      <ServiceCapabilitiesGrid />
+      <QuoteBanner
+        quote="Today's customers are more empowered, wielding the power of choice and influence. To thrive, companies must embrace innovation, adaptability, and a keen understanding of what fosters trust through their products, services, and experiences."
+        author="Jon Valenti"
+        role="Principal, Deloitte Digital"
+      />
+      <FeaturedAccelerators
+        title="Featured Accelerators"
+        items={acceleratorsData}
+      />
+      <OurWorkSection
+        title="Our work in action"
+        subtitle="We create customer solutions that evolve with the times. Here's how."
+        items={workData}
+      />
+      <QuoteCtaSection
+          quote="We believe brands are financial assets, not just marketing assets. So we're helping clients develop data-driven strategies that benchmark the opportunity and enable the brand to transform the business."
+          author="Maggie Gross"
+          role="Principal, Deloitte Digital"
+          buttonText="IT'S TIME TO STRATEGIZE"
+          buttonLink="/contact"
+      />
+      <InsightCardsSection items={Insightdata} />
+      {/* Next sections here */}
+    </main>
+  );
 };
 
-export default GrowthMarketing;
+export default BusinessMarketIntelligence;

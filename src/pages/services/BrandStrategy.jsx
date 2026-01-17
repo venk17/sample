@@ -1,158 +1,180 @@
-import React from 'react';
-import ServiceLayout from '../../components/Layout/ServiceLayout';
-import { 
-  Target, Award, Heart, Star, Eye, Palette,
-  TrendingUp, Users, Globe, MessageSquare, Crown,
-  Search, Building
-} from 'lucide-react';
+import ServiceHero from "../../components/Services/ServiceHero";
+import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
+import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
+import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
+import ServiceCtaBanner from "../../components/Services/ServiceCtaBanner";
+import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid";
+import QuoteBanner from "../../components/Services/QuoteBanner";
+import FeaturedAccelerators from "../../components/Services/FeaturedAccelerators";
+import OurWorkSection from "../../components/Services/OurWorkSection";
+import QuoteCtaSection from "../../components/Services/QuoteCtaSection";
+import InsightCardsSection from "../../components/Services/InsightCardsSection";
 
-const BrandStrategy = () => {
-  const serviceData = {
-    title: "Brand Strategy & Premium Positioning",
-    subtitle: "Elevate your brand to command premium value and build lasting customer loyalty",
-    description: "We craft compelling brand narratives and strategic positioning that differentiates you in competitive markets, builds emotional connections with customers, and drives premium pricing power through authentic storytelling and consistent brand experiences.",
-    icon: Target,
-    iconColor: 'purple',
-    
-    stats: [
-      { value: "70%", label: "Brand Recall", description: "Average increase in customer recognition" },
-      { value: "3.2x", label: "Price Premium", description: "Average price increase achieved" },
-      { value: "45%", label: "Customer Loyalty", description: "Increase in repeat business" },
-      { value: "8-12 Weeks", label: "Strategy Development", description: "Complete brand transformation" }
+const helpItems = [
+  {
+    title: "Customer & Commercial Strategy",
+    description:
+      "We help you define your agenda. Our researchers and strategists help develop initiatives that fuel innovation, drive growth, reduce costs, and accelerate time-to-value.",
+    services: [
+      "Brand and experience strategy",
+      "Customer engagement strategy",
+      "Go-to-market planning",
+      "Social and influencer strategy",
+      "Campaign content development",
     ],
-    
-    features: [
-      {
-        title: "Brand Positioning",
-        description: "Define your unique market position and value proposition",
-        icon: Target
-      },
-      {
-        title: "Brand Identity",
-        description: "Develop cohesive visual and verbal identity systems",
-        icon: Palette
-      },
-      {
-        title: "Brand Architecture",
-        description: "Structure your brand portfolio for maximum impact",
-        icon: Crown
-      },
-      {
-        title: "Brand Voice & Messaging",
-        description: "Create compelling narratives and communication frameworks",
-        icon: MessageSquare
-      },
-      {
-        title: "Customer Experience Design",
-        description: "Design seamless brand experiences across all touchpoints",
-        icon: Heart
-      },
-      {
-        title: "Brand Equity Measurement",
-        description: "Track and optimize brand performance metrics",
-        icon: TrendingUp
-      }
+  },
+  {
+    title: "Creative & Experience Design",
+    description:
+      "Designing world-class customer experiences across digital platforms.",
+    services: ["UX design", "UI design", "Design systems"],
+  },
+  {
+    title: "Digital Transformation",
+    description:
+      "We modernize your technology and operations to enable scalable digital growth and innovation.",
+    services: [
+      "Digital roadmap",
+      "Technology modernization",
+      "Cloud migration",
+      "Process automation",
     ],
-    
-    sections: [
-      {
-        title: "Strategic Brand Development",
-        content: "We develop comprehensive brand strategies that align with your business objectives and resonate with your target audience.",
-        icon: Target,
-        points: [
-          "Market positioning and differentiation strategy",
-          "Target audience profiling and segmentation",
-          "Brand promise and value proposition development",
-          "Competitive brand landscape analysis",
-          "Brand personality and archetype definition",
-          "Brand story and narrative creation"
-        ]
-      },
-      {
-        title: "Premium Positioning & Pricing",
-        content: "Establish your brand as a premium choice in the market with appropriate pricing strategies.",
-        icon: Award,
-        points: [
-          "Premium positioning strategy development",
-          "Pricing strategy and tier optimization",
-          "Value communication framework",
-          "Luxury and premium market insights",
-          "Competitive pricing analysis",
-          "ROI measurement for brand investments"
-        ]
-      }
+  },
+  {
+    title: "Data & Analytics",
+    description:
+      "Turning data into actionable insights to improve decision-making and business performance.",
+    services: [
+      "Business intelligence",
+      "Customer analytics",
+      "AI & machine learning",
+      "Data platforms",
     ],
-    
-    processSteps: [
-      {
-        title: "Brand Audit & Research",
-        description: "Comprehensive analysis of current brand equity and market position",
-        icon: Search,
-        duration: "2-3 Weeks"
-      },
-      {
-        title: "Strategy Development",
-        description: "Create brand positioning, architecture, and communication strategies",
-        icon: Target,
-        duration: "3-4 Weeks"
-      },
-      {
-        title: "Identity Creation",
-        description: "Develop visual identity, messaging, and brand guidelines",
-        icon: Palette,
-        duration: "3 Weeks"
-      },
-      {
-        title: "Implementation Planning",
-        description: "Create rollout strategy and implementation roadmap",
-        icon: TrendingUp,
-        duration: "2 Weeks"
-      }
-    ],
-    
-    caseStudies: [
-      {
-        title: "Luxury Lifestyle Brand Launch",
-        industry: "Luxury Retail",
-        description: "Developed and launched a premium lifestyle brand targeting high-net-worth individuals",
-        result: "Achieved 5x price premium over competitors"
-      },
-      {
-        title: "Tech Brand Repositioning",
-        industry: "Technology",
-        description: "Repositioned a B2B tech company from commodity provider to premium partner",
-        result: "Increased deal size by 300%"
-      }
-    ],
-    
-    testimonials: [
-      {
-        name: "Michael Rodriguez",
-        position: "Brand Director",
-        company: "Luxe Living Group",
-        quote: "Their brand strategy transformed our positioning. We went from being another furniture brand to a luxury lifestyle authority."
-      },
-      {
-        name: "Priya Sharma",
-        position: "CMO",
-        company: "TechSolutions Inc",
-        quote: "The premium positioning strategy helped us command higher prices while increasing customer loyalty. Exceptional work."
-      }
-    ],
-    
-    faqs: [
-      {
-        question: "How do you measure the success of a brand strategy?",
-        answer: "We measure success through brand equity metrics (awareness, consideration, preference), pricing power, customer loyalty scores, and business KPIs like revenue and market share."
-      },
-      {
-        question: "Can you work with established brands needing refresh?",
-        answer: "Absolutely. We specialize in both new brand creation and established brand revitalization, helping legacy brands stay relevant in changing markets."
-      }
-    ]
-  };
+  },
+];
 
-  return <ServiceLayout data={serviceData} />;
+const acceleratorsData = [
+  {
+    name: "TrustID™",
+    description:
+      "The Human Experience (HX™) TrustID™ is a data-driven tool that identifies trust strengths and deficits—so you can start closing the gaps. What's your business' trust score?",
+    link: "#"
+  },
+  {
+    name: "BrandWorth™",
+    description:
+      "BrandWorth™ is a powerful new way to measure the impact of brand investment. Make brand a C-suite priority and drive growth for your business.",
+    link: "#"
+  },
+  {
+    name: "Human Experience™",
+    description:
+      "HX™ helps leaders who are responsible for their organization’s customer, workforce, and partner experiences create valuable solutions that put humans first.",
+    link: "#"
+  }
+];
+
+const workData = [
+  {
+    image: "https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg",
+    category: "Fan Experience",
+    client: "WNBA",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/290275/pexels-photo-290275.jpeg",
+    category: "Customer Journey",
+    client: "SoFi Stadium",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
+    category: "Experience Strategy",
+    client: "New Balance",
+    link: "#"
+  }
+];
+const Insightdata = [
+  {
+    image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
+    category: "Innovation Strategies",
+    title: "Make your organization innovation-ready with four bold strategies"
+  },
+  {
+    image: "https://images.pexels.com/photos/7709086/pexels-photo-7709086.jpeg",
+    category: "Marketing Beyond Podcast",
+    title: "Hear ways to write BetterBriefs that drive better marketing results"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  }
+];
+
+const BusinessMarketIntelligence = () => {
+  return (
+    <main className="overflow-hidden">
+      <ServiceHero
+        title="Customer & Commercial Strategy"
+        subtitle="Reshaping unprecedented challenges into strategic wins"
+        videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
+      />
+
+      <BusinessIntroSection />
+
+      <ServiceHelpSection
+        title="Here's how we can help you"
+        items={helpItems}
+      />
+      <ServiceQuoteSection
+        quote="The collaboration and experience across retail and digital experiences from Deloitte Digital enabled us to transform our company—and not just deliver a digital store but truly deliver for the fearlessly independent."
+        name="Damien Leigh"
+        role="SVP Direct to Consumer, New Balance"
+      />
+
+      <ServiceCtaBanner
+        label="GET INNOVATIVE"
+        title="Explore the Ten Types of Innovation"
+        buttonText="TEN TYPES OF INNOVATION"
+        buttonLink="/innovation"
+      />
+      <ServiceCapabilitiesGrid />
+      <QuoteBanner
+        quote="Today's customers are more empowered, wielding the power of choice and influence. To thrive, companies must embrace innovation, adaptability, and a keen understanding of what fosters trust through their products, services, and experiences."
+        author="Jon Valenti"
+        role="Principal, Deloitte Digital"
+      />
+      <FeaturedAccelerators
+        title="Featured Accelerators"
+        items={acceleratorsData}
+      />
+      <OurWorkSection
+        title="Our work in action"
+        subtitle="We create customer solutions that evolve with the times. Here's how."
+        items={workData}
+      />
+      <QuoteCtaSection
+          quote="We believe brands are financial assets, not just marketing assets. So we're helping clients develop data-driven strategies that benchmark the opportunity and enable the brand to transform the business."
+          author="Maggie Gross"
+          role="Principal, Deloitte Digital"
+          buttonText="IT'S TIME TO STRATEGIZE"
+          buttonLink="/contact"
+      />
+      <InsightCardsSection items={Insightdata} />
+      {/* Next sections here */}
+    </main>
+  );
 };
 
-export default BrandStrategy;
+export default BusinessMarketIntelligence;

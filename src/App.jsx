@@ -21,6 +21,7 @@ import TeamPage from './pages/WhoWeAre/TeamPage';
 import CareersPage from './pages/WhoWeAre/CareersPage';
 import PartnersPage from './pages/PartnersPage';
 import ScrollProgressBar from './components/ScrollProgressBar';
+import ScrollToTop from './components/ScrollProgressBar';
 
 
 
@@ -28,9 +29,10 @@ import ScrollProgressBar from './components/ScrollProgressBar';
 function App() {
   return (
     <Router>
+       <ScrollToTop /> 
       <div className="min-h-screen flex flex-col">
         <Header />
-        <ScrollProgressBar/>
+        
         
         <main className="flex-grow">
           <Routes>
