@@ -109,6 +109,16 @@ const Insightdata = [
     image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
     category: "Generative AI",
     title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
   }
 ];
 

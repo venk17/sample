@@ -1,158 +1,215 @@
-import React from 'react';
-import ServiceLayout from '../../components/Layout/ServiceLayout';
-import { 
-  Globe, Smartphone, Layout, Code, Zap, Users,
-  Shield, Cloud, Cpu, TrendingUp, Eye, Palette,
-  Search, Rocket, ShoppingCart, Building
-} from 'lucide-react';
+import ServiceHero from "../../components/Services/ServiceHero";
+import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
+import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
+import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
+import AlliancesSection from "../../components/Services/AlliancesSection";
+import ServiceCtaBanner from "../../components/Services/ServiceCtaBanner";
+import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid";
+import QuoteBanner from "../../components/Services/QuoteBanner";
+import FeaturedAccelerators from "../../components/Services/FeaturedAccelerators";
+import OurWorkSection from "../../components/Services/OurWorkSection";
+import QuoteCtaSection from "../../components/Services/QuoteCtaSection";
+import InsightCardsSection from "../../components/Services/InsightCardsSection";
 
-const DigitalExperience = () => {
-  const serviceData = {
-    title: "Digital Experience & Technology",
-    subtitle: "Create seamless, engaging digital experiences that delight customers and drive business growth",
-    description: "We design and develop cutting-edge digital solutions that transform customer interactions, streamline operations, and create competitive advantage through innovative technology implementation and user-centered design.",
-    icon: Globe,
-    iconColor: 'green',
-    
-    stats: [
-      { value: "65%", label: "Engagement Increase", description: "Average improvement in user engagement" },
-      { value: "40%", label: "Conversion Lift", description: "Increase in conversion rates" },
-      { value: "50%", label: "Faster Development", description: "Reduced time-to-market" },
-      { value: "99.9%", label: "Uptime", description: "Platform reliability" }
+const helpItems = [
+  {
+    title: "Customer & Commercial Strategy",
+    description:
+      "We help you define your agenda. Our researchers and strategists help develop initiatives that fuel innovation, drive growth, reduce costs, and accelerate time-to-value.",
+    services: [
+      "Brand and experience strategy",
+      "Customer engagement strategy",
+      "Go-to-market planning",
+      "Social and influencer strategy",
+      "Campaign content development",
     ],
-    
-    features: [
-      {
-        title: "UX/UI Design",
-        description: "Create intuitive, beautiful interfaces that users love",
-        icon: Layout
-      },
-      {
-        title: "Web & Mobile Development",
-        description: "Build responsive, high-performance applications",
-        icon: Smartphone
-      },
-      {
-        title: "Digital Transformation",
-        description: "Modernize legacy systems and processes",
-        icon: Cloud
-      },
-      {
-        title: "E-commerce Solutions",
-        description: "Create seamless online shopping experiences",
-        icon: ShoppingCart
-      },
-      {
-        title: "API Integration",
-        description: "Connect systems and data for seamless operations",
-        icon: Code
-      },
-      {
-        title: "Performance Optimization",
-        description: "Ensure fast, reliable digital experiences",
-        icon: Zap
-      }
+  },
+  {
+    title: "Creative & Experience Design",
+    description:
+      "Designing world-class customer experiences across digital platforms.",
+    services: ["UX design", "UI design", "Design systems"],
+  },
+  {
+    title: "Digital Transformation",
+    description:
+      "We modernize your technology and operations to enable scalable digital growth and innovation.",
+    services: [
+      "Digital roadmap",
+      "Technology modernization",
+      "Cloud migration",
+      "Process automation",
     ],
-    
-    sections: [
-      {
-        title: "User-Centered Design",
-        content: "We create digital experiences that prioritize user needs while achieving business objectives.",
-        icon: Users,
-        points: [
-          "User research and persona development",
-          "Information architecture and user flows",
-          "Wireframing and prototyping",
-          "Usability testing and optimization",
-          "Accessibility compliance (WCAG)",
-          "Design system development"
-        ]
-      },
-      {
-        title: "Technology Implementation",
-        content: "Leverage modern technology stacks to build scalable, secure digital solutions.",
-        icon: Cpu,
-        points: [
-          "Modern frontend frameworks (React, Vue, Angular)",
-          "Backend development (Node.js, Python, .NET)",
-          "Cloud infrastructure (AWS, Azure, GCP)",
-          "Mobile app development (iOS, Android)",
-          "Headless CMS implementation",
-          "DevOps and CI/CD pipelines"
-        ]
-      }
+  },
+  {
+    title: "Data & Analytics",
+    description:
+      "Turning data into actionable insights to improve decision-making and business performance.",
+    services: [
+      "Business intelligence",
+      "Customer analytics",
+      "AI & machine learning",
+      "Data platforms",
     ],
-    
-    processSteps: [
-      {
-        title: "Discovery & Strategy",
-        description: "Define project goals, user needs, and technical requirements",
-        icon: Search,
-        duration: "2-3 Weeks"
-      },
-      {
-        title: "Design & Prototyping",
-        description: "Create user interfaces, experiences, and interactive prototypes",
-        icon: Layout,
-        duration: "3-4 Weeks"
-      },
-      {
-        title: "Development & Testing",
-        description: "Build, integrate, and rigorously test the digital solution",
-        icon: Code,
-        duration: "6-8 Weeks"
-      },
-      {
-        title: "Launch & Optimization",
-        description: "Deploy solution and implement ongoing improvements",
-        icon: Rocket,
-        duration: "Ongoing"
-      }
-    ],
-    
-    caseStudies: [
-      {
-        title: "Omnichannel Retail Platform",
-        industry: "Retail",
-        description: "Developed unified commerce platform integrating online, mobile, and in-store experiences",
-        result: "35% increase in cross-channel sales"
-      },
-      {
-        title: "Healthcare Portal Modernization",
-        industry: "Healthcare",
-        description: "Redesigned patient portal improving accessibility and engagement",
-        result: "60% reduction in support calls"
-      }
-    ],
-    
-    testimonials: [
-      {
-        name: "David Kim",
-        position: "CTO",
-        company: "Urban Retail Group",
-        quote: "Their digital transformation expertise helped us create a seamless omnichannel experience. Sales increased dramatically across all channels."
-      },
-      {
-        name: "Lisa Wang",
-        position: "Product Director",
-        company: "HealthFirst Systems",
-        quote: "The patient portal redesign was exceptional. User satisfaction scores went from 65% to 94% in just 3 months."
-      }
-    ],
-    
-    faqs: [
-      {
-        question: "What technologies do you specialize in?",
-        answer: "We specialize in React, Next.js, Vue, Node.js, Python, AWS, and mobile development (React Native, Flutter). We choose the best stack for each project."
-      },
-      {
-        question: "Do you provide ongoing maintenance?",
-        answer: "Yes, we offer maintenance packages including updates, security patches, performance monitoring, and feature enhancements."
-      }
-    ]
-  };
+  },
+];
 
-  return <ServiceLayout data={serviceData} />;
+const acceleratorsData = [
+  {
+    name: "TrustID™",
+    description:
+      "The Human Experience (HX™) TrustID™ is a data-driven tool that identifies trust strengths and deficits—so you can start closing the gaps. What's your business' trust score?",
+    link: "#"
+  },
+  {
+    name: "BrandWorth™",
+    description:
+      "BrandWorth™ is a powerful new way to measure the impact of brand investment. Make brand a C-suite priority and drive growth for your business.",
+    link: "#"
+  },
+  {
+    name: "Human Experience™",
+    description:
+      "HX™ helps leaders who are responsible for their organization’s customer, workforce, and partner experiences create valuable solutions that put humans first.",
+    link: "#"
+  }
+];
+
+const workData = [
+  {
+    image: "https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg",
+    category: "Fan Experience",
+    client: "WNBA",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/290275/pexels-photo-290275.jpeg",
+    category: "Customer Journey",
+    client: "SoFi Stadium",
+    link: "#"
+  },
+  {
+    image: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
+    category: "Experience Strategy",
+    client: "New Balance",
+    link: "#"
+  }
+];
+const Insightdata = [
+  {
+    image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
+    category: "Innovation Strategies",
+    title: "Make your organization innovation-ready with four bold strategies"
+  },
+  {
+    image: "https://images.pexels.com/photos/7709086/pexels-photo-7709086.jpeg",
+    category: "Marketing Beyond Podcast",
+    title: "Hear ways to write BetterBriefs that drive better marketing results"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  },
+  {
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+    category: "Generative AI",
+    title: "Transforming retail and consumer brands with GenAI"
+  }
+];
+const alliancesData = [
+  {
+    name: "Adobe",
+    description: "Transforming next-gen digital commerce",
+    link: "/alliances/adobe"
+  },
+  {
+    name: "commercetools",
+    description: "Composable commerce platform for modern brands",
+    link: "/alliances/commercetools"
+  },
+  {
+    name: "Salesforce",
+    description: "Customer 360 digital solutions",
+    link: "/alliances/salesforce"
+  },
+  {
+    name: "SAP",
+    description: "Enterprise commerce & ERP integration",
+    link: "/alliances/sap"
+  },
+  {
+    name: "Shopify",
+    description: "Scalable ecommerce for fast-growing brands",
+    link: "/alliances/shopify"
+  }
+];
+
+const BusinessMarketIntelligence = () => {
+  return (
+    <main className="overflow-hidden">
+      <ServiceHero
+        title="Customer & Commercial Strategy"
+        subtitle="Reshaping unprecedented challenges into strategic wins"
+        videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
+      />
+
+      <BusinessIntroSection />
+      <ServiceQuoteSection
+        quote="The collaboration and experience across retail and digital experiences from Deloitte Digital enabled us to transform our company—and not just deliver a digital store but truly deliver for the fearlessly independent."
+        name="Damien Leigh"
+        role="SVP Direct to Consumer, New Balance"
+      />
+
+      <ServiceHelpSection
+        title="Here's how we can help you"
+        items={helpItems}
+      />
+      <AlliancesSection
+        title="The power of our alliances and accelerators"
+        subtitle="We can't do it alone. We've created strong alliances and accelerators with top industry and technology leaders."
+        items={alliancesData}
+        buttonText="Explore all our alliances"
+        buttonLink="/alliances"
+     />
+      
+      <ServiceCtaBanner
+        label="GET INNOVATIVE"
+        title="Explore the Ten Types of Innovation"
+        buttonText="TEN TYPES OF INNOVATION"
+        buttonLink="/innovation"
+      />
+      <ServiceCapabilitiesGrid />
+      <QuoteBanner
+        quote="Today's customers are more empowered, wielding the power of choice and influence. To thrive, companies must embrace innovation, adaptability, and a keen understanding of what fosters trust through their products, services, and experiences."
+        author="Jon Valenti"
+        role="Principal, Deloitte Digital"
+      />
+      <FeaturedAccelerators
+        title="Featured Accelerators"
+        items={acceleratorsData}
+      />
+      <OurWorkSection
+        title="Our work in action"
+        subtitle="We create customer solutions that evolve with the times. Here's how."
+        items={workData}
+      />
+      <QuoteCtaSection
+          quote="We believe brands are financial assets, not just marketing assets. So we're helping clients develop data-driven strategies that benchmark the opportunity and enable the brand to transform the business."
+          author="Maggie Gross"
+          role="Principal, Deloitte Digital"
+          buttonText="IT'S TIME TO STRATEGIZE"
+          buttonLink="/contact"
+      />
+      <InsightCardsSection items={Insightdata} />
+      {/* Next sections here */}
+    </main>
+  );
 };
 
-export default DigitalExperience;
+export default BusinessMarketIntelligence;
