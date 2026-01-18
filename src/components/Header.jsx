@@ -97,16 +97,22 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
 
           <Link to="/" className="flex items-center gap-2">
-            <span className={`text-xl font-bold ${isScrolled ? "text-black" : "text-white"}`}>YourBrand</span>
-            <span className={`${isScrolled ? "text-gray-600" : "text-white"}`}>Digital</span>
+            <span className={`text-xl font-bold ${isScrolled ? "text-black" : "text-white"}`}>
+              YourBrand
+            </span>
+            <span className={`${isScrolled ? "text-gray-600" : "text-white"}`}>
+              Digital
+            </span>
           </Link>
 
+          {/* DESKTOP NAV */}
           <nav className="hidden lg:flex gap-8">
             {navigation.map((item) => (
               <div
                 key={item.name}
                 className="relative"
                 onMouseEnter={() => setActiveDropdown(item.name)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button
                   className={`flex items-center gap-1 font-medium ${
@@ -119,8 +125,7 @@ const Header = () => {
 
                 {activeDropdown === item.name && (
                   <div
-                    onMouseLeave={() => setActiveDropdown(null)}
-                    className={`absolute top-full left-0 mt-3 min-w-[240px] rounded-md p-5 shadow-xl z-50
+                    className={`absolute top-full left-0 mt-0 min-w-[240px] rounded-md p-5 shadow-xl z-50
                     ${
                       isScrolled
                         ? "bg-white text-black"
@@ -170,6 +175,7 @@ const Header = () => {
           </button>
         </div>
 
+        {/* MOBILE MENU */}
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-black/40 z-40 lg:hidden">
             <div className="absolute right-0 top-0 h-full w-80 bg-white p-6 overflow-y-auto">

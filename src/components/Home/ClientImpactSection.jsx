@@ -53,20 +53,18 @@ const ClientImpactSection = () => {
   const step = 100 / visibleCards;
 
   return (
-    <section className="py-24 bg-white font-sans antialiased">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* LABEL */}
-        <h3 className="uppercase tracking-[0.35em] text-[30px] font-bold mb-6 text-black">
+        {/* LABEL – same as TransformationSection */}
+        <h3 className="uppercase tracking-[0.01em] text-[28px] font-black mb-6 text-black drop-shadow-[0_1px_0_#000]">
           Client Impact
         </h3>
 
-        {/* HEADING */}
-        <div className="mb-20 max-w-4xl">
-          <h2 className="text-[42px] lg:text-[56px] font-light tracking-tight leading-[1.08] text-black">
-            Combining creativity and technology to drive more value
-          </h2>
-        </div>
+        {/* HEADING – same as TransformationSection */}
+        <h2 className="text-[42px] font-light mb-20 max-w-4xl leading-[1.15] text-black">
+          Combining creativity and technology to drive more value
+        </h2>
 
         {/* SLIDER */}
         <div className="relative overflow-hidden touch-pan-y">

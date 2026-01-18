@@ -1,9 +1,9 @@
 import ServiceHero from "../../components/Services/ServiceHero";
 import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
-import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
+import ServiceHelpSectionBtn from "../../components/Services/ServiceHelpSectionBtn";
 import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
 import ServiceCtaBanner from "../../components/Services/ServiceCtaBanner";
-import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid";
+import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid"
 import QuoteBanner from "../../components/Services/QuoteBanner";
 import FeaturedAccelerators from "../../components/Services/FeaturedAccelerators";
 import OurWorkSection from "../../components/Services/OurWorkSection";
@@ -122,7 +122,7 @@ const Insightdata = [
   }
 ];
 
-const BusinessMarketIntelligence = () => {
+const BrandStrategy= () => {
   return (
     <main className="overflow-hidden">
       <ServiceHero
@@ -133,7 +133,7 @@ const BusinessMarketIntelligence = () => {
 
       <BusinessIntroSection />
 
-      <ServiceHelpSection
+      <ServiceHelpSectionBtn
         title="Here's how we can help you"
         items={helpItems}
       />
@@ -149,7 +149,7 @@ const BusinessMarketIntelligence = () => {
         buttonText="TEN TYPES OF INNOVATION"
         buttonLink="/innovation"
       />
-      <ServiceCapabilitiesGrid />
+      <ServiceCapabilitiesGrid/>
       <QuoteBanner
         quote="Today's customers are more empowered, wielding the power of choice and influence. To thrive, companies must embrace innovation, adaptability, and a keen understanding of what fosters trust through their products, services, and experiences."
         author="Jon Valenti"
@@ -177,4 +177,4 @@ const BusinessMarketIntelligence = () => {
   );
 };
 
-export default BusinessMarketIntelligence;
+export default  BrandStrategy;

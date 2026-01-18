@@ -13,13 +13,13 @@ const WeAreSection = () => {
       {/* CONTENT */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
-        {/* LABEL */}
-        <div className="text-[15px] font-bold tracking-[0.35em] uppercase mb-10 text-white/90">
-          WE ARE
+        {/* LABEL – matched */}
+        <div className="uppercase tracking-[0.01em] text-[28px] font-black mb-10 text-white drop-shadow-[0_1px_0_rgba(0,0,0,0.6)]">
+          We Are
         </div>
 
-        {/* MAIN HEADING */}
-        <h2 className="text-4xl lg:text-5xl font-light tracking-tight leading-[1.15] max-w-5xl mx-auto mb-14 text-white">
+        {/* MAIN HEADING – matched */}
+        <h2 className="text-[42px] lg:text-[42px] font-light leading-[1.15] max-w-5xl mx-auto mb-14 text-white">
           Tens of thousands of creative and technology professionals across 47
           studios around the world
         </h2>

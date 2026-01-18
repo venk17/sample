@@ -34,15 +34,20 @@ const InsightsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white font-sans antialiased">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* HEADER */}
-        <div className="mb-20">
-          <h3 className="uppercase tracking-[0.35em] text-[30px] font-bold mb-6 text-black">
-            Latest Insights
-          </h3>
-        </div>
+        {/* LABEL – same as other sections */}
+        <h3 className="uppercase tracking-[0.01em] text-[28px] font-black mb-6 text-black drop-shadow-[0_1px_0_#000]">
+          Latest Insights
+        </h3>
+
+        {/* HEADING – optional (remove if not needed) */}
+        {/* 
+        <h2 className="text-[42px] font-light mb-20 max-w-4xl leading-[1.15] text-black">
+          Discover trends shaping digital transformation
+        </h2> 
+        */}
 
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -60,13 +65,13 @@ const InsightsSection = () => {
                 />
 
                 <div className="absolute top-4 right-4">
-                  <span className="text-[12px] font-medium px-3 py-1.5 rounded-full bg-black/80 text-white backdrop-blur-sm">
+                  <span className="text-[12px] font-medium px-3 py-1.5 rounded-full bg-black/80 text-white">
                     {insight.readTime}
                   </span>
                 </div>
 
                 {insight.isPodcast && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-green-800/90 via-green-800/60 to-transparent flex flex-col justify-end p-6 text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-green-900/90 via-green-900/60 to-transparent flex flex-col justify-end p-6 text-white">
                     <div className="text-[18px] font-bold mb-3">MARKETING BEYOND</div>
                     <div className="text-[14px] mb-4">WITH {insight.podcastInfo.host}</div>
                     <div className="text-[12px] opacity-90 mb-1">FEATURING</div>
@@ -83,7 +88,7 @@ const InsightsSection = () => {
                   {insight.category}
                 </div>
 
-                <h3 className="text-[22px] font-light text-black mb-4 leading-snug tracking-tight group-hover:text-green-600 transition-colors">
+                <h3 className="text-[22px] font-light text-black mb-4 leading-snug tracking-tight">
                   {insight.title}
                 </h3>
 
@@ -92,10 +97,10 @@ const InsightsSection = () => {
                 </p>
 
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-[14px] font-medium text-black group-hover:text-green-600 transition-colors">
+                  <span className="text-[14px] font-medium text-black">
                     Read Article
                   </span>
-                  <span className="text-[14px]">→</span>
+                  <span className="text-[16px]">→</span>
                 </div>
               </div>
             </article>

@@ -1,10 +1,10 @@
 import ServiceHero from "../../components/Services/ServiceHero";
-import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
+import BusinessIntroSectionBtn from "../../components/Services/BusinessIntroSectionBtn";
 import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
 import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
 import AlliancesSection from "../../components/Services/AlliancesSection";
 import ServiceCtaBanner from "../../components/Services/ServiceCtaBanner";
-import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid";
+import ServiceCapabilitiesCarousel from "../../components/Services/ServiceCapabilitiesCarousel";
 import QuoteBanner from "../../components/Services/QuoteBanner";
 import FeaturedAccelerators from "../../components/Services/FeaturedAccelerators";
 import OurWorkSection from "../../components/Services/OurWorkSection";
@@ -150,7 +150,7 @@ const alliancesData = [
   }
 ];
 
-const BusinessMarketIntelligence = () => {
+const  GrowthMarketing= () => {
   return (
     <main className="overflow-hidden">
       <ServiceHero
@@ -159,7 +159,7 @@ const BusinessMarketIntelligence = () => {
         videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
       />
 
-      <BusinessIntroSection />
+      <BusinessIntroSectionBtn />
       <ServiceQuoteSection
         quote="The collaboration and experience across retail and digital experiences from Deloitte Digital enabled us to transform our company—and not just deliver a digital store but truly deliver for the fearlessly independent."
         name="Damien Leigh"
@@ -184,7 +184,7 @@ const BusinessMarketIntelligence = () => {
         buttonText="TEN TYPES OF INNOVATION"
         buttonLink="/innovation"
       />
-      <ServiceCapabilitiesGrid />
+      <ServiceCapabilitiesCarousel/>
       <QuoteBanner
         quote="Today's customers are more empowered, wielding the power of choice and influence. To thrive, companies must embrace innovation, adaptability, and a keen understanding of what fosters trust through their products, services, and experiences."
         author="Jon Valenti"
@@ -212,4 +212,4 @@ const BusinessMarketIntelligence = () => {
   );
 };
 
-export default BusinessMarketIntelligence;
+export default  GrowthMarketing;

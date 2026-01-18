@@ -51,16 +51,16 @@ const AlliancesSection = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden font-sans antialiased">
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* LABEL */}
-        <h3 className="uppercase tracking-[0.35em] text-[30px] font-bold mb-6 text-black text-center">
+        {/* LABEL – matched */}
+        <h3 className="uppercase tracking-[0.01em] text-[28px] font-black mb-6 text-black drop-shadow-[0_1px_0_#000] text-center">
           Strategic Partnerships
         </h3>
 
-        {/* MAIN HEADING */}
-        <h2 className="text-[42px] lg:text-[56px] font-light tracking-tight leading-[1.08] text-black mb-6 text-center">
+        {/* MAIN HEADING – matched */}
+        <h2 className="text-[42px] font-light leading-[1.15] text-black mb-6 text-center">
           Our Trusted <span className="text-blue-600 font-normal">Technology Partners</span>
         </h2>
 
@@ -77,15 +77,12 @@ const AlliancesSection = () => {
               {doubledPartners.map((partner, index) => (
                 <a key={index} href={partner.url} target="_blank" rel="noreferrer" className="flex-shrink-0">
                   <div className="bg-white rounded-2xl p-6 w-48 h-40 flex flex-col items-center justify-center border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
-
                     <div className="h-20 flex items-center justify-center mb-4">
                       <img src={partner.logo} alt={partner.name} className="max-h-12 object-contain" />
                     </div>
-
                     <span className="text-[14px] font-medium text-gray-700">
                       {partner.name}
                     </span>
-
                   </div>
                 </a>
               ))}
@@ -106,7 +103,6 @@ const AlliancesSection = () => {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
             {[
               ["Early Access", "Get early access to new features, betas, and product updates before general release."],
               ["Certified Experts", "Our team includes certified specialists with deep expertise in partner platforms."],
@@ -114,24 +110,15 @@ const AlliancesSection = () => {
               ["Co-Marketing", "Joint marketing initiatives and go-to-market strategies for mutual growth."]
             ].map(([title, desc], i) => (
               <div key={i} className="bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-shadow">
-
-                <h4 className="text-[16px] font-medium text-black mb-2">
-                  {title}
-                </h4>
-
-                <p className="text-[15px] text-gray-600 leading-relaxed">
-                  {desc}
-                </p>
-
+                <h4 className="text-[16px] font-medium text-black mb-2">{title}</h4>
+                <p className="text-[15px] text-gray-600 leading-relaxed">{desc}</p>
               </div>
             ))}
-
           </div>
         </div>
 
         {/* CTA */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-12 text-center text-white">
-
           <h3 className="text-[32px] lg:text-[40px] font-light tracking-tight mb-4">
             Interested in Partnership?
           </h3>
@@ -141,7 +128,6 @@ const AlliancesSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-
             <a href="/contact" className="bg-white text-blue-600 px-8 py-3 rounded-full text-[14px] font-medium hover:bg-gray-100 transition">
               Become a Partner
             </a>
@@ -149,13 +135,11 @@ const AlliancesSection = () => {
             <a href="/partners" className="border-2 border-white text-white px-8 py-3 rounded-full text-[14px] font-medium hover:bg-white/10 transition">
               View All Partnerships
             </a>
-
           </div>
 
           <p className="mt-6 text-[14px] text-blue-200">
             Contact us at <span className="font-medium">partnerships@yourbrand.com</span>
           </p>
-
         </div>
 
       </div>
