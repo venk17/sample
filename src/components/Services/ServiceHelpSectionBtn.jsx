@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const ServiceHelpSection = ({ title, items }) => {
+const ServiceHelpSectionBtn = ({ title, items }) => {
   const [openIndex, setOpenIndex] = useState(0);
 
   const toggle = (index) => {
@@ -13,7 +13,7 @@ const ServiceHelpSection = ({ title, items }) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
 
-          {/* LEFT TITLE – vertically centered */}
+          {/* LEFT TITLE */}
           <div className="flex items-center">
             <h2 className="text-5xl font-light leading-tight max-w-md">
               {title}
@@ -49,7 +49,7 @@ const ServiceHelpSection = ({ title, items }) => {
                     />
                   </button>
 
-                  {/* DROPDOWN CONTENT */}
+                  {/* CONTENT */}
                   <div
                     className={`overflow-hidden transition-all duration-500 ${
                       isOpen
@@ -66,7 +66,6 @@ const ServiceHelpSection = ({ title, items }) => {
                           <p className="font-medium text-black">
                             Related services include:
                           </p>
-
                           <ul className="list-disc ml-6 space-y-2">
                             {item.services.map((s, i) => (
                               <li key={i}>{s}</li>
@@ -75,38 +74,38 @@ const ServiceHelpSection = ({ title, items }) => {
                         </>
                       )}
 
-                      {/* CTA BUTTON */}
-                      <a
-                        href="#"
-                        className="
-                          group box-border
-                          inline-flex items-center justify-center
-                          mt-8
-                          px-10 py-4
-                          rounded-full
-                          bg-black
-                          text-white
-                          tracking-[0.25em]
-                          text-xs
-                          font-medium
-                          transition-all duration-300 ease-out
-                          border border-transparent hover:border-2
-
-                          hover:text-[#3b42c4]
-                          hover:border-[#3b42c4]
-                        "
-                      >
-                        EXPLORE MORE STRATEGY CAPABILITIES
-                        <span className="ml-3 text-2xl font-light tracking-wide transition-transform duration-300 group-hover:translate-x-2">
-                          →
-                        </span>
-                      </a>
-
                     </div>
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* COMMON CTA BUTTON – only one */}
+          <div className="mt-20 flex justify-center lg:col-span-2">
+            <a
+              href="#"
+              className="
+                group box-border
+                inline-flex items-center justify-center
+                px-12 py-5
+                rounded-full
+                bg-black
+                text-white
+                tracking-[0.25em]
+                text-xs md:text-sm
+                font-medium
+                transition-all duration-300 ease-out
+                border border-transparent hover:border-2
+                hover:text-[#3b42c4]
+                hover:border-[#3b42c4]
+              "
+            >
+              IT'S TIME TO STRATEGIZE
+              <span className="ml-3 text-2xl md:text-3xl font-light transition-transform duration-300 group-hover:translate-x-2">
+                →
+              </span>
+            </a>
           </div>
 
         </div>
@@ -115,4 +114,4 @@ const ServiceHelpSection = ({ title, items }) => {
   );
 };
 
-export default ServiceHelpSection;
+export default ServiceHelpSectionBtn;

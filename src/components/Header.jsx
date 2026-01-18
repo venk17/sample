@@ -14,14 +14,12 @@ const Header = () => {
 
   const locationText = "India";
 
-  // Scroll detection
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll for mobile menu
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
@@ -49,7 +47,7 @@ const Header = () => {
     {
       name: "What We Do",
       dropdown: true,
-      items: [{ name: "View All Services", path: "/services", isHighlighted: true }, ...services]
+      items: services
     },
     {
       name: "Who We Are",
@@ -59,7 +57,7 @@ const Header = () => {
         { name: "Our Team", path: "/team" },
         { name: "Careers", path: "/careers" }
       ]
-    },
+    }
   ];
 
   const toggleMobileDropdown = (name) =>
@@ -78,7 +76,6 @@ const Header = () => {
         isScrolled ? "bg-white shadow-lg" : "bg-transparent"
       }`}
     >
-      {/* TOP BAR */}
       {showTopBar && (
         <div className={`border-b ${isScrolled ? "border-gray-200" : "border-white/20"}`}>
           <div className="max-w-7xl mx-auto px-6">
@@ -96,17 +93,14 @@ const Header = () => {
         </div>
       )}
 
-      {/* MAIN HEADER */}
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
 
-          {/* LOGO */}
           <Link to="/" className="flex items-center gap-2">
             <span className={`text-xl font-bold ${isScrolled ? "text-black" : "text-white"}`}>YourBrand</span>
             <span className={`${isScrolled ? "text-gray-600" : "text-white"}`}>Digital</span>
           </Link>
 
-          {/* DESKTOP NAV */}
           <nav className="hidden lg:flex gap-8">
             {navigation.map((item) => (
               <div
@@ -120,12 +114,12 @@ const Header = () => {
                   }`}
                 >
                   {item.name}
-                  {item.dropdown && <ChevronDown size={14} />}
+                  <ChevronDown size={14} />
                 </button>
 
-                {/* DROPDOWN */}
-                {activeDropdown === item.name && item.dropdown && (
+                {activeDropdown === item.name && (
                   <div
+                    onMouseLeave={() => setActiveDropdown(null)}
                     className={`absolute top-full left-0 mt-3 min-w-[240px] rounded-md p-5 shadow-xl z-50
                     ${
                       isScrolled
@@ -133,38 +127,23 @@ const Header = () => {
                         : "bg-white/10 backdrop-blur-2xl border border-white/20 text-white"
                     }`}
                   >
-                    {item.name === "What We Do" && (
-                      <Link
-                        to="/services"
-                        onClick={() => setActiveDropdown(null)}
-                        className={`block mb-3 font-semibold ${
-                          isScrolled ? "text-blue-600" : "text-white"
-                        }`}
-                      >
-                        View All Services →
-                      </Link>
-                    )}
-
                     <ul className="space-y-2">
-                      {item.items.map(
-                        (sub, i) =>
-                          !sub.isHighlighted && (
-                            <li key={i}>
-                              <Link
-                                to={sub.path}
-                                onClick={() => setActiveDropdown(null)}   // ✅ FIX
-                                className={`block px-2 py-1 rounded transition
-                                  ${
-                                    isScrolled
-                                      ? "text-gray-700 hover:bg-gray-100 hover:text-black"
-                                      : "text-white/90 hover:bg-white/10 hover:text-white"
-                                  }`}
-                              >
-                                {sub.name}
-                              </Link>
-                            </li>
-                          )
-                      )}
+                      {item.items.map((sub, i) => (
+                        <li key={i}>
+                          <Link
+                            to={sub.path}
+                            onClick={() => setActiveDropdown(null)}
+                            className={`block px-2 py-1 rounded transition
+                              ${
+                                isScrolled
+                                  ? "text-gray-700 hover:bg-gray-100 hover:text-black"
+                                  : "text-white/90 hover:bg-white/10 hover:text-white"
+                              }`}
+                          >
+                            {sub.name}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 )}
@@ -172,7 +151,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA */}
           <Link
             to="/contact"
             className={`hidden lg:block border px-4 py-1.5 rounded-full ${
@@ -184,7 +162,6 @@ const Header = () => {
             Contact Us
           </Link>
 
-          {/* MOBILE BUTTON */}
           <button
             className={`lg:hidden ${isScrolled ? "text-black" : "text-white"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -193,7 +170,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* MOBILE MENU */}
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-black/40 z-40 lg:hidden">
             <div className="absolute right-0 top-0 h-full w-80 bg-white p-6 overflow-y-auto">

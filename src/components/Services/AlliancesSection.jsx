@@ -1,8 +1,8 @@
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const AlliancesSection = ({ title, subtitle, items, buttonText, buttonLink }) => {
-  const [activeIndex, setActiveIndex] = useState(0); // first open by default
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleItem = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -13,11 +13,11 @@ const AlliancesSection = ({ title, subtitle, items, buttonText, buttonLink }) =>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-20">
           <h2 className="text-3xl md:text-4xl font-light mb-4 text-black">
             {title}
           </h2>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600 text-sm leading-relaxed">
             {subtitle}
           </p>
         </div>
@@ -41,32 +41,52 @@ const AlliancesSection = ({ title, subtitle, items, buttonText, buttonLink }) =>
                   </h3>
 
                   <ChevronDown
-                    className={`transition-transform duration-300 ${
+                    className={`w-5 h-5 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {/* Expand content */}
-                {isOpen && (
-                  <div className="pb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                <div
+                  className={`overflow-hidden transition-all duration-500 ${
+                    isOpen ? "max-h-[400px] pb-10 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
 
-                    <p className="text-sm text-gray-600 max-w-md">
+                    <p className="text-sm text-gray-600 max-w-md leading-relaxed">
                       {item.description}
                     </p>
 
                     {item.link && (
                       <a
                         href={item.link}
-                        className="inline-flex items-center gap-2 border border-black px-8 py-3 rounded-full text-sm hover:bg-black hover:text-white transition"
+                        className="
+                          group box-border
+                          inline-flex items-center justify-center
+                          px-8 py-3
+                          rounded-full
+                          bg-black
+                          text-white
+                          tracking-[0.25em]
+                          text-[11px]
+                          font-medium
+                          transition-all duration-300 ease-out
+                          border border-transparent hover:border-2
+                          hover:text-[#3b42c4]
+                          hover:border-[#3b42c4]
+                        "
                       >
-                        Learn more
-                        <ArrowRight size={16} />
+                        LEARN MORE
+                        <span className="ml-3 text-xl font-light transition-transform duration-300 group-hover:translate-x-2">
+                          →
+                        </span>
                       </a>
                     )}
 
                   </div>
-                )}
+                </div>
 
               </div>
             );
@@ -76,13 +96,29 @@ const AlliancesSection = ({ title, subtitle, items, buttonText, buttonLink }) =>
 
         {/* Bottom CTA */}
         {buttonText && (
-          <div className="mt-20 text-center">
+          <div className="mt-24 flex justify-center">
             <a
               href={buttonLink}
-              className="inline-flex items-center gap-2 bg-black text-white px-10 py-4 rounded-full text-sm tracking-wider hover:bg-gray-900 transition"
+              className="
+                group box-border
+                inline-flex items-center justify-center
+                px-12 py-5
+                rounded-full
+                bg-black
+                text-white
+                tracking-[0.25em]
+                text-xs md:text-sm
+                font-medium
+                transition-all duration-300 ease-out
+                border border-transparent hover:border-2
+                hover:text-[#3b42c4]
+                hover:border-[#3b42c4]
+              "
             >
               {buttonText}
-              <ArrowRight size={16} />
+              <span className="ml-3 text-2xl md:text-3xl font-light transition-transform duration-300 group-hover:translate-x-2">
+                →
+              </span>
             </a>
           </div>
         )}

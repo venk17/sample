@@ -38,7 +38,7 @@ const OurWorkSection = ({ title, subtitle, items }) => {
                 {item.client}
               </h3>
 
-              {/* Link */}
+              {/* Existing link (unchanged) */}
               <a
                 href={item.link}
                 className="inline-flex items-center gap-2 text-sm tracking-widest uppercase text-black hover:opacity-70 transition"
@@ -50,6 +50,35 @@ const OurWorkSection = ({ title, subtitle, items }) => {
           ))}
 
         </div>
+
+        {/* NEW CTA BUTTON */}
+        <div className="mt-20 flex justify-center">
+          <a
+            href="#"
+            className="
+              group box-border
+              inline-flex items-center justify-center
+              px-12 py-5
+              rounded-full
+              bg-black
+              text-white
+              tracking-[0.25em]
+              text-xs md:text-sm
+              font-medium
+              transition-all duration-300 ease-out
+              border border-transparent hover:border-2
+
+              hover:text-[#3b42c4]
+              hover:border-[#3b42c4]
+            "
+          >
+            EXPLORE MORE STORIES
+            <span className="ml-3 text-2xl md:text-3xl font-light transition-transform duration-300 group-hover:translate-x-2">
+              →
+            </span>
+          </a>
+        </div>
+
       </div>
     </section>
   );

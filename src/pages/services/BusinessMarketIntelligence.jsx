@@ -1,6 +1,6 @@
 import ServiceHero from "../../components/Services/ServiceHero";
 import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
-import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
+import ServiceHelpSectionBtn from "../../components/Services/ServiceHelpSectionBtn";
 import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
 import ServiceCtaBanner from "../../components/Services/ServiceCtaBanner";
 import ServiceCapabilitiesGrid from "../../components/Services/ServiceCapabilitiesGrid";
@@ -133,7 +133,7 @@ const BusinessMarketIntelligence = () => {
 
       <BusinessIntroSection />
 
-      <ServiceHelpSection
+      <ServiceHelpSectionBtn
         title="Here's how we can help you"
         items={helpItems}
       />

@@ -1,5 +1,5 @@
 import ServiceHero from "../../components/Services/ServiceHero";
-import BusinessIntroSection from "../../components/Services/BusinessIntroSection";
+import BusinessIntroSectionBtn from "../../components/Services/BusinessIntroSectionBtn";
 import ServiceHelpSection from "../../components/Services/ServiceHelpSection";
 import ServiceQuoteSection from "../../components/Services/ServiceQuoteSection";
 import AlliancesSection from "../../components/Services/AlliancesSection";
@@ -159,7 +159,7 @@ const BusinessMarketIntelligence = () => {
         videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
       />
 
-      <BusinessIntroSection />
+      <BusinessIntroSectionBtn />
       <ServiceQuoteSection
         quote="The collaboration and experience across retail and digital experiences from Deloitte Digital enabled us to transform our company—and not just deliver a digital store but truly deliver for the fearlessly independent."
         name="Damien Leigh"

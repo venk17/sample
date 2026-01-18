@@ -39,10 +39,32 @@ const Footer = () => {
                 our society, and our planet.
               </p>
               
-              <a href="#" className="btn btn-outline inline-flex items-center gap-2">
-                VISIT DELOITTE.COM
-                <ArrowRight className="w-4 h-4" />
-              </a>
+                     <a
+  href="#"
+  className="
+    group box-border
+    inline-flex items-center justify-center
+    px-10 py-4
+    rounded-full
+    bg-black
+    text-white
+    tracking-[0.25em]
+    text-xs
+    font-medium
+    transition-all duration-300 ease-out
+    border border-transparent hover:border-2
+
+    hover:text-[#3b42c4]
+    hover:border-[#3b42c4]
+  "
+>
+  VISIT DELOITTE.COM
+
+  <span className="ml-3 text-2xl font-light transition-transform duration-300 group-hover:translate-x-2">
+    →
+  </span>
+</a>
+
             </div>
           </div>
         </div>

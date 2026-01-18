@@ -22,12 +22,31 @@ const ServiceCtaBanner = ({ label, title, buttonText, buttonLink }) => {
             {title}
           </h2>
 
+          {/* CTA BUTTON – same style as previous */}
           <a
             href={buttonLink}
-            className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full text-sm tracking-wider hover:bg-gray-900 transition"
+            className="
+              group box-border
+              inline-flex items-center justify-center
+              px-12 py-5
+              rounded-full
+              bg-black
+              text-white
+              tracking-[0.25em]
+              text-xs md:text-sm
+              font-medium
+              transition-all duration-300 ease-out
+              border border-transparent hover:border-2
+
+              hover:text-[#3b42c4]
+              hover:border-[#3b42c4]
+            "
           >
             {buttonText}
-            <ArrowRight size={18} />
+
+            <span className="ml-3 text-2xl md:text-3xl font-light tracking-wide transition-transform duration-300 group-hover:translate-x-2">
+              →
+            </span>
           </a>
 
         </div>
