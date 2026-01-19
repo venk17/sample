@@ -126,10 +126,11 @@ const BusinessMarketIntelligence = () => {
   return (
     <main className="overflow-hidden">
       <ServiceHero
-        title="Customer & Commercial Strategy"
-        subtitle="Reshaping unprecedented challenges into strategic wins"
-        videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
-      />
+  title="Business & Market Intelligence"
+  subtitle="The foundation of revenue and value transformation"
+  videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
+/>
+
 
       <BusinessIntroSection />
 
