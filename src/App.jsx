@@ -10,18 +10,14 @@ import DigitalExperience from './pages/services/DigitalExperience';
 import GrowthMarketing from './pages/services/GrowthMarketing';
 import OrganisationCapability from './pages/services/OrganisationCapability';
 import AIAutomation from './pages/services/AIAutomation';
-import InsightsPage from "./pages/InsightsPage"
 import BlogPage from "./pages/DDInsights/Blog";
-import IndustryReportsPage from "./pages/Insights/IndustryReports";
-import BlogDetailPage from "./pages/Insights/BlogDetail";
-import CaseStudyDetailPage from "./pages/Insights/CaseStudyDetail";
+import IndustryReportsPage from "./pages/DDInsights/IndustryReportsPage";
 import AboutPage  from "./pages/WhoWeAre/AboutPage";
 import TeamPage from './pages/WhoWeAre/TeamPage';
 import CareersPage from './pages/WhoWeAre/CareersPage';
 import PartnersPage from './pages/PartnersPage';
-import ScrollProgressBar from './components/ScrollProgressBar';
-import ScrollToTop from './components/ScrollProgressBar';
 import CaseStudiesPage from './pages/CaseStudyPage';
+import AcceleratorsPage from "./pages/More/AcceleratorsPage"
 
 
 
@@ -59,15 +55,16 @@ function App() {
             <Route path="/insights/blog" element={<BlogPage />} />
             <Route path="/insights/reports" element={<IndustryReportsPage />} />
         
-            {/* Individual detail pages (optional) */}
-            <Route path="/insights/blog/:id" element={<BlogDetailPage />} />
-            <Route path="/insights/cases/:id" element={<CaseStudyDetailPage />} />
+
             
             {/*who we are */}
             <Route path="/about" element={<AboutPage />} />
             <Route path="/team" element={<TeamPage />} />
             <Route path="/careers" element={<CareersPage />} />
 
+            {/* more pages*/}
+
+            <Route path="/accelerators" element={<AcceleratorsPage />} />
 
 
 

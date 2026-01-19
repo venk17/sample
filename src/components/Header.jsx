@@ -44,11 +44,7 @@ const Header = () => {
         { name: "Industrious", path: "/insights/reports" }
       ]
     },
-    {
-      name: "What We Do",
-      dropdown: true,
-      items: services
-    },
+    { name: "What We Do", dropdown: true, items: services },
     {
       name: "Who We Are",
       dropdown: true,
@@ -56,6 +52,15 @@ const Header = () => {
         { name: "About Us", path: "/about" },
         { name: "Our Team", path: "/team" },
         { name: "Careers", path: "/careers" }
+      ]
+    },
+    {
+      name: "More",
+      dropdown: true,
+      items: [
+        { name: "Alliance", path: "/alliance" },
+        { name: "Accelerators", path: "/accelerators" },
+        { name: "Industries", path: "/industries" }
       ]
     }
   ];
@@ -72,7 +77,7 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-300 ${
         isScrolled ? "bg-white shadow-lg" : "bg-transparent"
       }`}
     >
@@ -97,10 +102,10 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
 
           <Link to="/" className="flex items-center gap-2">
-            <span className={`text-xl font-bold ${isScrolled ? "text-black" : "text-white"}`}>
+            <span className={`text-xl font-bold ${isScrolled || isMobileMenuOpen ? "text-black" : "text-white"}`}>
               YourBrand
             </span>
-            <span className={`${isScrolled ? "text-gray-600" : "text-white"}`}>
+            <span className={`${isScrolled || isMobileMenuOpen ? "text-gray-600" : "text-white"}`}>
               Digital
             </span>
           </Link>
@@ -115,35 +120,17 @@ const Header = () => {
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button
-                    className={`flex items-center gap-1 font-medium ${
-                      isScrolled ? "text-gray-700" : "text-white"
-                    }`}
-                  >
+                  <button className={`flex items-center gap-1 font-medium ${isScrolled ? "text-gray-700" : "text-white"}`}>
                     {item.name}
                     <ChevronDown size={14} />
                   </button>
 
                   {activeDropdown === item.name && (
-                    <div
-                      className={`absolute top-full left-0 min-w-[240px] rounded-md p-5 shadow-xl z-50 ${
-                        isScrolled
-                          ? "bg-white text-black"
-                          : "bg-white/10 backdrop-blur-2xl border border-white/20 text-white"
-                      }`}
-                    >
+                    <div className="absolute top-full left-0 min-w-[240px] rounded-md p-5 shadow-xl bg-white z-50">
                       <ul className="space-y-2">
                         {item.items.map((sub, i) => (
                           <li key={i}>
-                            <Link
-                              to={sub.path}
-                              onClick={() => setActiveDropdown(null)}
-                              className={`block px-2 py-1 rounded transition ${
-                                isScrolled
-                                  ? "text-gray-700 hover:bg-gray-100 hover:text-black"
-                                  : "text-white/90 hover:bg-white/10 hover:text-white"
-                              }`}
-                            >
+                            <Link to={sub.path} className="block px-2 py-1 rounded text-gray-700 hover:bg-gray-100">
                               {sub.name}
                             </Link>
                           </li>
@@ -153,13 +140,7 @@ const Header = () => {
                   )}
                 </div>
               ) : (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`font-medium ${
-                    isScrolled ? "text-gray-700" : "text-white"
-                  }`}
-                >
+                <Link key={item.name} to={item.path} className={`font-medium ${isScrolled ? "text-gray-700" : "text-white"}`}>
                   {item.name}
                 </Link>
               )
@@ -169,34 +150,30 @@ const Header = () => {
           <Link
             to="/contact"
             className={`hidden lg:block border px-4 py-1.5 rounded-full ${
-              isScrolled
-                ? "border-black text-black hover:bg-black hover:text-white"
-                : "border-white text-white hover:bg-white hover:text-black"
+              isScrolled ? "border-black text-black hover:bg-black hover:text-white" : "border-white text-white hover:bg-white hover:text-black"
             }`}
           >
             Contact Us
           </Link>
 
+          {/* MOBILE BUTTON */}
           <button
-            className={`lg:hidden ${isScrolled ? "text-black" : "text-white"}`}
+            className={`lg:hidden relative z-[80] ${isScrolled || isMobileMenuOpen ? "text-black" : "text-white"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
 
         {/* MOBILE MENU */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-black/40 z-40 lg:hidden">
+          <div className="fixed inset-0 bg-black/40 z-50 lg:hidden">
             <div className="absolute right-0 top-0 h-full w-80 bg-white p-6 overflow-y-auto">
 
               {navigation.map((item) =>
                 item.dropdown ? (
                   <div key={item.name} className="border-b py-3">
-                    <button
-                      onClick={() => toggleMobileDropdown(item.name)}
-                      className="flex justify-between w-full text-left font-medium"
-                    >
+                    <button onClick={() => toggleMobileDropdown(item.name)} className="flex justify-between w-full font-medium">
                       {item.name}
                       <ChevronDown size={16} />
                     </button>
@@ -216,21 +193,13 @@ const Header = () => {
                     )}
                   </div>
                 ) : (
-                  <button
-                    key={item.name}
-                    onClick={() => handleMobileClick(item.path)}
-                    className="block w-full text-left py-3 border-b font-medium"
-                  >
+                  <button key={item.name} onClick={() => handleMobileClick(item.path)} className="block w-full text-left py-3 border-b font-medium">
                     {item.name}
                   </button>
                 )
               )}
 
-              <Link
-                to="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block mt-6 text-center bg-black text-white py-2 rounded-full"
-              >
+              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block mt-6 text-center bg-black text-white py-2 rounded-full">
                 Contact Us
               </Link>
             </div>
