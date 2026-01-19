@@ -11,8 +11,7 @@ import GrowthMarketing from './pages/services/GrowthMarketing';
 import OrganisationCapability from './pages/services/OrganisationCapability';
 import AIAutomation from './pages/services/AIAutomation';
 import InsightsPage from "./pages/InsightsPage"
-import BlogPage from "./pages/Insights/Blog";
-import CaseStudiesPage from "./pages/Insights/CaseStudies";
+import BlogPage from "./pages/DDInsights/Blog";
 import IndustryReportsPage from "./pages/Insights/IndustryReports";
 import BlogDetailPage from "./pages/Insights/BlogDetail";
 import CaseStudyDetailPage from "./pages/Insights/CaseStudyDetail";
@@ -22,6 +21,7 @@ import CareersPage from './pages/WhoWeAre/CareersPage';
 import PartnersPage from './pages/PartnersPage';
 import ScrollProgressBar from './components/ScrollProgressBar';
 import ScrollToTop from './components/ScrollProgressBar';
+import CaseStudiesPage from './pages/CaseStudyPage';
 
 
 
@@ -29,7 +29,7 @@ import ScrollToTop from './components/ScrollProgressBar';
 function App() {
   return (
     <Router>
-       <ScrollToTop /> 
+      
       <div className="min-h-screen flex flex-col">
         <Header />
         
@@ -39,7 +39,8 @@ function App() {
             {/* Home Page */}
             <Route path="/" element={<Home />} />
              <Route path="/partners" element={<PartnersPage/>} />
-            
+
+            <Route path="/casestudies" element={<CaseStudiesPage />} />
             {/* Services Overview */}
             <Route path="/services" element={<ServicesPage />} />
             
@@ -55,9 +56,7 @@ function App() {
             <Route path="*" element={<Home />} />
 
             {/* Insights Routes */}
-            <Route path="/insights" element={<InsightsPage />} />
             <Route path="/insights/blog" element={<BlogPage />} />
-            <Route path="/insights/cases" element={<CaseStudiesPage />} />
             <Route path="/insights/reports" element={<IndustryReportsPage />} />
         
             {/* Individual detail pages (optional) */}

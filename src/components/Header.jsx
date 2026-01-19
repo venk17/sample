@@ -35,13 +35,13 @@ const Header = () => {
   ];
 
   const navigation = [
+    { name: "Case Studies", dropdown: false, path: "/casestudies" },
     {
       name: "DD Insights",
       dropdown: true,
       items: [
-        { name: "Blog Articles", path: "/insights/blog" },
-        { name: "Case Studies", path: "/insights/cases" },
-        { name: "Industry Reports", path: "/insights/reports" }
+        { name: "Perspective & Research", path: "/insights/blog" },
+        { name: "Industrious", path: "/insights/reports" }
       ]
     },
     {
@@ -107,53 +107,63 @@ const Header = () => {
 
           {/* DESKTOP NAV */}
           <nav className="hidden lg:flex gap-8">
-            {navigation.map((item) => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <button
-                  className={`flex items-center gap-1 font-medium ${
-                    isScrolled ? "text-gray-700" : "text-white"
-                  }`}
+            {navigation.map((item) =>
+              item.dropdown ? (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown(item.name)}
+                  onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  {item.name}
-                  <ChevronDown size={14} />
-                </button>
-
-                {activeDropdown === item.name && (
-                  <div
-                    className={`absolute top-full left-0 mt-0 min-w-[240px] rounded-md p-5 shadow-xl z-50
-                    ${
-                      isScrolled
-                        ? "bg-white text-black"
-                        : "bg-white/10 backdrop-blur-2xl border border-white/20 text-white"
+                  <button
+                    className={`flex items-center gap-1 font-medium ${
+                      isScrolled ? "text-gray-700" : "text-white"
                     }`}
                   >
-                    <ul className="space-y-2">
-                      {item.items.map((sub, i) => (
-                        <li key={i}>
-                          <Link
-                            to={sub.path}
-                            onClick={() => setActiveDropdown(null)}
-                            className={`block px-2 py-1 rounded transition
-                              ${
+                    {item.name}
+                    <ChevronDown size={14} />
+                  </button>
+
+                  {activeDropdown === item.name && (
+                    <div
+                      className={`absolute top-full left-0 min-w-[240px] rounded-md p-5 shadow-xl z-50 ${
+                        isScrolled
+                          ? "bg-white text-black"
+                          : "bg-white/10 backdrop-blur-2xl border border-white/20 text-white"
+                      }`}
+                    >
+                      <ul className="space-y-2">
+                        {item.items.map((sub, i) => (
+                          <li key={i}>
+                            <Link
+                              to={sub.path}
+                              onClick={() => setActiveDropdown(null)}
+                              className={`block px-2 py-1 rounded transition ${
                                 isScrolled
                                   ? "text-gray-700 hover:bg-gray-100 hover:text-black"
                                   : "text-white/90 hover:bg-white/10 hover:text-white"
                               }`}
-                          >
-                            {sub.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ))}
+                            >
+                              {sub.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`font-medium ${
+                    isScrolled ? "text-gray-700" : "text-white"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
           </nav>
 
           <Link
@@ -180,31 +190,41 @@ const Header = () => {
           <div className="fixed inset-0 bg-black/40 z-40 lg:hidden">
             <div className="absolute right-0 top-0 h-full w-80 bg-white p-6 overflow-y-auto">
 
-              {navigation.map((item) => (
-                <div key={item.name} className="border-b py-3">
+              {navigation.map((item) =>
+                item.dropdown ? (
+                  <div key={item.name} className="border-b py-3">
+                    <button
+                      onClick={() => toggleMobileDropdown(item.name)}
+                      className="flex justify-between w-full text-left font-medium"
+                    >
+                      {item.name}
+                      <ChevronDown size={16} />
+                    </button>
+
+                    {mobileOpenDropdown === item.name && (
+                      <div className="mt-3 space-y-2 pl-3">
+                        {item.items.map((sub, i) => (
+                          <button
+                            key={i}
+                            onClick={() => handleMobileClick(sub.path)}
+                            className="block text-sm text-gray-600 text-left"
+                          >
+                            {sub.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
                   <button
-                    onClick={() => toggleMobileDropdown(item.name)}
-                    className="flex justify-between w-full text-left font-medium"
+                    key={item.name}
+                    onClick={() => handleMobileClick(item.path)}
+                    className="block w-full text-left py-3 border-b font-medium"
                   >
                     {item.name}
-                    <ChevronDown size={16} />
                   </button>
-
-                  {mobileOpenDropdown === item.name && (
-                    <div className="mt-3 space-y-2 pl-3">
-                      {item.items.map((sub, i) => (
-                        <button
-                          key={i}
-                          onClick={() => handleMobileClick(sub.path)}
-                          className="block text-sm text-gray-600 text-left"
-                        >
-                          {sub.name}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+                )
+              )}
 
               <Link
                 to="/contact"

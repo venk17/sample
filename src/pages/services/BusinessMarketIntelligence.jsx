@@ -9,6 +9,7 @@ import FeaturedAccelerators from "../../components/Services/FeaturedAccelerators
 import OurWorkSection from "../../components/Services/OurWorkSection";
 import QuoteCtaSection from "../../components/Services/QuoteCtaSection";
 import InsightCardsSection from "../../components/Services/InsightCardsSection";
+import { businessMarketIntelligencePageData as data } from "../../data/services/businessMarketIntelligence";
 
 const helpItems = [
   {
