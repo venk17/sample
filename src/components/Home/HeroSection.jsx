@@ -1,7 +1,7 @@
 import { ArrowRight, Play, Pause } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import heroVideo1 from "../../assets/videos/hero1.mp4";
+import heroVideo1 from "../../assets/videos/herobg1.mp4";
 import heroVideo3 from "../../assets/videos/hero3.mp4";
 
 
