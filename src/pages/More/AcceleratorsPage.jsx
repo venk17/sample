@@ -2,6 +2,7 @@ import React from 'react'
 import ServiceHero from '../../components/Services/ServiceHero';
 import AcceleratorsIntroSection  from "../../components/Accelerators/AcceleratorsIntroSection";
 import AcceleratorsGridSection from '../../components/Accelerators/AcceleratorsGridSection';
+import heroVideo from "../../assets/videos/accelelators.mp4"
 
 function AcceleratorsPage() {
   return (
@@ -9,7 +10,7 @@ function AcceleratorsPage() {
         <ServiceHero
         title="Our Accelerators"
         subtitle="Ignite transformation, unlock potentia"
-        videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
+        videoSrc={heroVideo}
         />
         <AcceleratorsIntroSection />
          <AcceleratorsGridSection />
