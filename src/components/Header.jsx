@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { ChevronDown, Menu, X, Globe } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import ScrollProgressBar from "./ScrollProgressBar";
+import logo from "../assets/images/logo.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -9,13 +10,22 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showTopBar, setShowTopBar] = useState(true);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
+  const [isOnHero, setIsOnHero] = useState(true);
+
   const headerRef = useRef(null);
   const navigate = useNavigate();
 
   const locationText = "India";
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 40;
+      setIsScrolled(scrolled);
+
+      // Hero section approx height
+      setIsOnHero(window.scrollY < 600);
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -100,13 +110,13 @@ const Header = () => {
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
-
           <Link to="/" className="flex items-center gap-2">
+            <img src={logo} alt="logo" className="h-8" />
             <span className={`text-xl font-bold ${isScrolled || isMobileMenuOpen ? "text-black" : "text-white"}`}>
-              YourBrand
+              Grow
             </span>
             <span className={`${isScrolled || isMobileMenuOpen ? "text-gray-600" : "text-white"}`}>
-              Digital
+              Spark
             </span>
           </Link>
 
@@ -126,11 +136,26 @@ const Header = () => {
                   </button>
 
                   {activeDropdown === item.name && (
-                    <div className="absolute top-full left-0 min-w-[240px] rounded-md p-5 shadow-xl bg-white z-50">
+                    <div
+                      className={`absolute top-full left-0 min-w-[240px] rounded-xl p-5 shadow-xl z-50 transition-all
+                      ${
+                        isOnHero && !isScrolled
+                          ? "bg-white/10 backdrop-blur-xl border border-white/20 text-white"
+                          : "bg-white text-gray-700"
+                      }`}
+                    >
                       <ul className="space-y-2">
                         {item.items.map((sub, i) => (
                           <li key={i}>
-                            <Link to={sub.path} className="block px-2 py-1 rounded text-gray-700 hover:bg-gray-100">
+                            <Link
+                              to={sub.path}
+                              className={`block px-2 py-1 rounded transition
+                              ${
+                                isOnHero && !isScrolled
+                                  ? "text-white hover:bg-white/10"
+                                  : "text-gray-700 hover:bg-gray-100"
+                              }`}
+                            >
                               {sub.name}
                             </Link>
                           </li>
@@ -140,7 +165,11 @@ const Header = () => {
                   )}
                 </div>
               ) : (
-                <Link key={item.name} to={item.path} className={`font-medium ${isScrolled ? "text-gray-700" : "text-white"}`}>
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`font-medium ${isScrolled ? "text-gray-700" : "text-white"}`}
+                >
                   {item.name}
                 </Link>
               )
@@ -150,7 +179,9 @@ const Header = () => {
           <Link
             to="/contact"
             className={`hidden lg:block border px-4 py-1.5 rounded-full ${
-              isScrolled ? "border-black text-black hover:bg-black hover:text-white" : "border-white text-white hover:bg-white hover:text-black"
+              isScrolled
+                ? "border-black text-black hover:bg-black hover:text-white"
+                : "border-white text-white hover:bg-white hover:text-black"
             }`}
           >
             Contact Us
@@ -169,7 +200,6 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-black/40 z-50 lg:hidden">
             <div className="absolute right-0 top-0 h-full w-80 bg-white p-6 overflow-y-auto">
-
               {navigation.map((item) =>
                 item.dropdown ? (
                   <div key={item.name} className="border-b py-3">
@@ -193,13 +223,21 @@ const Header = () => {
                     )}
                   </div>
                 ) : (
-                  <button key={item.name} onClick={() => handleMobileClick(item.path)} className="block w-full text-left py-3 border-b font-medium">
+                  <button
+                    key={item.name}
+                    onClick={() => handleMobileClick(item.path)}
+                    className="block w-full text-left py-3 border-b font-medium"
+                  >
                     {item.name}
                   </button>
                 )
               )}
 
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block mt-6 text-center bg-black text-white py-2 rounded-full">
+              <Link
+                to="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block mt-6 text-center bg-black text-white py-2 rounded-full"
+              >
                 Contact Us
               </Link>
             </div>

@@ -17,7 +17,9 @@ import TeamPage from './pages/WhoWeAre/TeamPage';
 import CareersPage from './pages/WhoWeAre/CareersPage';
 import PartnersPage from './pages/PartnersPage';
 import CaseStudiesPage from './pages/CaseStudyPage';
-import AcceleratorsPage from "./pages/More/AcceleratorsPage"
+import AcceleratorsPage from "./pages/More/AcceleratorsPage";
+import AlliancePage from './pages/More/AlliancePage';
+import IndustriesPage from './pages/More/IndustriesPage';
 
 
 
@@ -63,8 +65,9 @@ function App() {
             <Route path="/careers" element={<CareersPage />} />
 
             {/* more pages*/}
-
             <Route path="/accelerators" element={<AcceleratorsPage />} />
+            <Route path="/alliance" element={<AlliancePage />} />
+            <Route path="/industries" element={<IndustriesPage />} />
 
 
 
